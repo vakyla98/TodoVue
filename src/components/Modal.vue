@@ -4,7 +4,7 @@
       <div class="modal-wrapper">
         <div class="modal-container">
           <div class="modal-header">
-              
+              Edit
           </div>
           <div class="modal-body">
               <textarea v-model="newText"></textarea>

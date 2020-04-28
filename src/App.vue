@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="aplication">
       <ToDoList/>
   </div>
 </template>
@@ -7,12 +7,13 @@
 <script>
 import ToDoList from './components/ToDoList.vue'
 export default {
-  name: 'App',
+  name: 'application',
   components: {
     ToDoList
   }
 }
 </script>
 
-<style>
+<style lang="scss">
+@import 'sass/main'
 </style>
