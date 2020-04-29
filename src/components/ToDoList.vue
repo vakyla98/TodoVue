@@ -1,33 +1,26 @@
 <template>
   <div class="todo">
-    <h1 class="app-name">My second app</h1>
-    <CreateToDo @add="addHandler" />
-    <ul class="todo__list" v-if="todos.length">
-      <ToDoItem
-        v-for="todo in todos"
-        :key="todo.id"
-        :todo="todo"
-        @delete="deleteHandler"
-        @edit="editHandler"
-      />
-    </ul>
-    <p v-else>No items</p>
-    <Modal v-if="isModalVisible" :text="this.todos[targetIndex].text" @close="changeTextHandler" />
-
-    <section class="section">
-      <div class="container">
-        <h1 class="title">Section</h1>
-        <h2 class="subtitle">
-          A simple container to divide your page into
-          <strong>sections</strong>, like the one you're currently reading
-        </h2>
-      </div>
-    </section>
+    <ToDoHeader/>
+    <v-content>
+      <CreateToDo @add="addHandler" />
+      <ul class="todo__list" v-if="todos.length">
+        <ToDoItem
+          v-for="todo in todos"
+          :key="todo.id"
+          :todo="todo"
+          @delete="deleteHandler"
+          @edit="editHandler"
+        />
+      </ul>
+      <p v-else>No items</p>
+    </v-content>
+    <Modal v-if="isEditTextWindowVisible" :text="this.todos[targetIndex].text" @close="changeTextHandler" />
   </div>
 </template>
 
 <script>
 import { v4 } from "uuid";
+import ToDoHeader from "./ToDoHeader.vue";
 import ToDoItem from "./ToDoItem.vue";
 import CreateToDo from "./CreateToDo.vue";
 import Modal from "./Modal.vue";
@@ -36,10 +29,12 @@ export default {
     return {
       todos: [],
       targetIndex: Number,
-      isModalVisible: false
+      isEditTextWindowVisible: false,
+      isDialogOpened: false,
     };
   },
   components: {
+    ToDoHeader,
     CreateToDo,
     ToDoItem,
     Modal
@@ -50,18 +45,15 @@ export default {
     },
     editHandler(id) {
       this.targetIndex = this.todos.findIndex(todo => todo.id === id);
-      this.isModalVisible = true;
+      this.isEditTextWindowVisible = true;
     },
     changeTextHandler(newText) {
       this.todos[this.targetIndex].text = newText;
-      console.log("target inedx: " + this.targetIndex);
-      console.log("new text: " + newText);
-      console.log("apply that: " + this.todos[this.targetIndex].text);
-      this.isModalVisible = false;
+      this.isEditTextWindowVisible = false;
     },
     deleteHandler(id) {
       this.todos = this.todos.filter(todo => todo.id !== id);
-    }
+    },
   }
 };
 </script>
