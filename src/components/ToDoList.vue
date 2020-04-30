@@ -6,16 +6,34 @@
         <v-col xl="10">
           <v-container>
             <CreateToDo @add="addHandler" />
-            <v-list class="todo__list" v-if="todos.length">
-              <ToDoItem
-                v-for="todo in todos"
-                :key="todo.id"
-                :todo="todo"
-                @delete="deleteHandler"
-                @edit="editHandler"
-              />
-            </v-list>
-            <p v-else>No items</p>
+            <v-row>
+              <v-col>
+                <v-list class="todo__list-completed" v-if="todos.length">
+                  <ToDoItem
+                    v-for="todo in uncompleted"
+                    :key="todo.id"
+                    :todo="todo"
+                    @complete="completeHandler"
+                    @delete="deleteHandler"
+                    @edit="editHandler"
+                  />
+                </v-list>
+                <p v-else>No completed ToDo's</p>
+              </v-col>
+              <v-col>
+                <v-list class="todo__list-uncompleted" v-if="todos.length">
+                  <ToDoItem
+                    v-for="todo in completed"
+                    :key="todo.id"
+                    :todo="todo"
+                    @complete="completeHandler"
+                    @delete="deleteHandler"
+                    @edit="editHandler"
+                  />
+                </v-list>
+                <p v-else>All ToDo's are complete</p>
+              </v-col>
+            </v-row>
           </v-container>
         </v-col>
       </v-row>
@@ -51,7 +69,7 @@ export default {
   },
   methods: {
     addHandler(text) {
-      this.todos.push({ id: v4(), text });
+      this.todos.push({ id: v4(), text , isComplete: false});
     },
     editHandler(id) {
       this.targetIndex = this.todos.findIndex(todo => todo.id === id);
@@ -63,6 +81,18 @@ export default {
     },
     deleteHandler(id) {
       this.todos = this.todos.filter(todo => todo.id !== id);
+    },
+    completeHandler(id){
+        this.targetIndex = this.todos.findIndex(todo => todo.id === id);
+        this.todos[this.targetIndex].isComplete = !(this.todos[this.targetIndex].isComplete)
+    }
+  },
+  computed: {
+    completed() {
+      return this.todos.filter(todo => todo.isComplete == true);
+    },
+    uncompleted() {
+      return this.todos.filter(todo => todo.isComplete == false);
     }
   }
 };
