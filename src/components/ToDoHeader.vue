@@ -30,7 +30,7 @@
     </v-navigation-drawer>
     <v-app-bar app dark color=primary>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-toolbar-title>My second app</v-toolbar-title>
+      <v-toolbar-title>ToDo app</v-toolbar-title>
     </v-app-bar>
   </div>
 </template>

@@ -6,9 +6,10 @@
         <v-col xl="10">
           <v-container>
             <CreateToDo @add="addHandler" />
-            <v-row>
+            <v-row v-if="todos.length">
               <v-col>
-                <v-list class="todo__list-completed" v-if="todos.length">
+                  <h3>Uncompleted ToDo's</h3>
+                <v-list class="todo__list-completed" v-if="this.uncompleted.length">
                   <ToDoItem
                     v-for="todo in uncompleted"
                     :key="todo.id"
@@ -18,10 +19,11 @@
                     @edit="editHandler"
                   />
                 </v-list>
-                <p v-else>No completed ToDo's</p>
+                <p v-else class="none-label text-center">None</p>
               </v-col>
               <v-col>
-                <v-list class="todo__list-uncompleted" v-if="todos.length">
+                  <h3>Completed ToDo's</h3>
+                <v-list class="todo__list-uncompleted" v-if="this.completed.length" >
                   <ToDoItem
                     v-for="todo in completed"
                     :key="todo.id"
@@ -31,9 +33,10 @@
                     @edit="editHandler"
                   />
                 </v-list>
-                <p v-else>All ToDo's are complete</p>
+                <p v-else class="none-label text-center">None</p>
               </v-col>
             </v-row>
+            <p v-else class="none-label text-center">No tasks</p>
           </v-container>
         </v-col>
       </v-row>
@@ -69,7 +72,8 @@ export default {
   },
   methods: {
     addHandler(text) {
-      this.todos.push({ id: v4(), text , isComplete: false});
+      this.todos.push({ id: v4(), text, isComplete: false });
+      console.log(this.uncompleted);
     },
     editHandler(id) {
       this.targetIndex = this.todos.findIndex(todo => todo.id === id);
@@ -82,9 +86,10 @@ export default {
     deleteHandler(id) {
       this.todos = this.todos.filter(todo => todo.id !== id);
     },
-    completeHandler(id){
-        this.targetIndex = this.todos.findIndex(todo => todo.id === id);
-        this.todos[this.targetIndex].isComplete = !(this.todos[this.targetIndex].isComplete)
+    completeHandler(id) {
+      this.targetIndex = this.todos.findIndex(todo => todo.id === id);
+      this.todos[this.targetIndex].isComplete = !this.todos[this.targetIndex]
+        .isComplete;
     }
   },
   computed: {
@@ -98,5 +103,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.none-label{
+    margin-top:30px;
+}
 </style>
