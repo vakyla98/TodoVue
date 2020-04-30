@@ -1,12 +1,12 @@
 <template>
-    <v-container class="todolist__input">
-      <v-row align="center" justify="center">
-        <v-col cols="12" sm="6">
-          <v-text-field v-model="text" label="Regular" clearable></v-text-field>
-        </v-col>
-        <v-btn depressed medium color="primary" @click="addHandler">Add</v-btn>
-      </v-row>
-    </v-container>
+    <v-row class="todolist__input" justify="center" align="center">
+      <v-col>
+        <v-text-field v-model="text" label="Regular" @keyup.enter="addHandler" clearable></v-text-field>
+      </v-col>
+      <v-col cols="auto">
+      <v-btn depressed medium color="primary" @click="addHandler" >Add</v-btn>
+      </v-col>
+    </v-row>
 </template>
 
 <script>

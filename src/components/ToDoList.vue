@@ -1,20 +1,30 @@
 <template>
   <div class="todo">
-    <ToDoHeader/>
+    <ToDoHeader />
     <v-content>
-      <CreateToDo @add="addHandler" />
-      <ul class="todo__list" v-if="todos.length">
-        <ToDoItem
-          v-for="todo in todos"
-          :key="todo.id"
-          :todo="todo"
-          @delete="deleteHandler"
-          @edit="editHandler"
-        />
-      </ul>
-      <p v-else>No items</p>
+      <v-row justify="center">
+        <v-col xl="10">
+          <v-container>
+            <CreateToDo @add="addHandler" />
+            <v-list class="todo__list" v-if="todos.length">
+              <ToDoItem
+                v-for="todo in todos"
+                :key="todo.id"
+                :todo="todo"
+                @delete="deleteHandler"
+                @edit="editHandler"
+              />
+            </v-list>
+            <p v-else>No items</p>
+          </v-container>
+        </v-col>
+      </v-row>
     </v-content>
-    <Modal v-if="isEditTextWindowVisible" :text="this.todos[targetIndex].text" @close="changeTextHandler" />
+    <Modal
+      v-if="isEditTextWindowVisible"
+      :text="this.todos[targetIndex].text"
+      @close="changeTextHandler"
+    />
   </div>
 </template>
 
@@ -30,7 +40,7 @@ export default {
       todos: [],
       targetIndex: Number,
       isEditTextWindowVisible: false,
-      isDialogOpened: false,
+      isDialogOpened: false
     };
   },
   components: {
@@ -53,7 +63,7 @@ export default {
     },
     deleteHandler(id) {
       this.todos = this.todos.filter(todo => todo.id !== id);
-    },
+    }
   }
 };
 </script>
