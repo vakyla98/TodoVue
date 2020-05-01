@@ -1,7 +1,7 @@
 <template>
   <v-row class="todolist__input" justify="center" align="center">
     <v-col>
-      <v-text-field v-model="text" label="Regular" @keyup.enter="addHandler" clearable></v-text-field>
+      <v-text-field v-model="text" label="New task" @keyup.enter="addHandler" clearable></v-text-field>
     </v-col>
     <v-col cols="auto">
       <v-btn depressed medium color="primary" @click="addHandler">Add</v-btn>
