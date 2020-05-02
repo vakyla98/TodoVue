@@ -9,11 +9,11 @@ export default new Router({
     mode: "history",
     routes:[
         {
-            path: '/dist/',
+            path: 'Vue3/dist/',
             component: Home
         },
         {
-            path:'/dist/todos',
+            path:'Vue3/dist/todos',
             component: () => import('./views/ToDos.vue')
         }
     ]
