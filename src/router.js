@@ -10,11 +10,11 @@ export default new Router({
     // base: '/dist',
     routes:[
         {
-            path: '/',
+            path: '/dist/',
             component: Home
         },
         {
-            path:'/todos',
+            path:'/dist/todos',
             component: () => import('./views/ToDos.vue')
         }
     ]

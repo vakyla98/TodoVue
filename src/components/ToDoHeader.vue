@@ -2,7 +2,7 @@
   <div class="header">
     <v-navigation-drawer v-model="drawer"  dark color="primary" app>
       <v-list dense>
-        <v-list-item href="/dist">
+        <v-list-item to="/dist">
           <v-list-item-action>
             <v-icon>mdi-home</v-icon>
           </v-list-item-action>
