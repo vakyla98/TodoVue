@@ -1,6 +1,7 @@
 <template>
   <v-app>
       <h2>App here</h2>
+      <router-link to="/todos">Go to home</router-link>
       <router-view/>
     <!-- <ToDoList/> -->
   </v-app>
