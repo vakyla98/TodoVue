@@ -7,14 +7,14 @@ Vue.use(Router)
 
 export default new Router({
     mode: "history",
-    base: 'Vue3/',
+    // base: 'Vue3/',
     routes:[
         {
-            path: 'dist/',
+            path: '/dist/',
             component: Home
         },
         {
-            path:'dist/todos',
+            path:'/dist/todos',
             component: () => import('./views/ToDos.vue')
         }
     ]
