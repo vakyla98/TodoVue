@@ -1,6 +1,5 @@
 <template>
   <div class="todo">
-    <ToDoHeader />
     <v-content>
       <v-row justify="center">
         <v-col xl="10">
@@ -10,6 +9,7 @@
               <v-col>
                 <h3>Uncompleted ToDo's</h3>
                 <v-list class="todo__list-completed" v-if="this.uncompleted.length">
+                  <transition-group name="fade" tag="p">
                   <ToDoItem
                     v-for="todo in uncompleted"
                     :key="todo.id"
@@ -18,20 +18,23 @@
                     @delete="deleteHandler"
                     @edit="editHandler"
                   />
+                  </transition-group>
                 </v-list>
                 <p v-else class="none-label text-center">None</p>
               </v-col>
               <v-col>
                 <h3>Completed ToDo's</h3>
                 <v-list class="todo__list-uncompleted" v-if="this.completed.length">
-                  <ToDoItem
-                    v-for="todo in completed"
-                    :key="todo.id"
-                    :todo="todo"
-                    @complete="completeHandler"
-                    @delete="deleteHandler"
-                    @edit="editHandler"
-                  />
+                  <transition-group name="fade" tag="p">
+                    <ToDoItem
+                      v-for="todo in completed"
+                      :key="todo.id"
+                      :todo="todo"
+                      @complete="completeHandler"
+                      @delete="deleteHandler"
+                      @edit="editHandler"
+                    />
+                  </transition-group>
                 </v-list>
                 <p v-else class="none-label text-center">None</p>
               </v-col>
@@ -51,7 +54,6 @@
 
 <script>
 import { v4 } from "uuid";
-import ToDoHeader from "./ToDoHeader.vue";
 import ToDoItem from "./ToDoItem.vue";
 import CreateToDo from "./CreateToDo.vue";
 import Modal from "./Modal.vue";
@@ -65,7 +67,6 @@ export default {
     };
   },
   components: {
-    ToDoHeader,
     CreateToDo,
     ToDoItem,
     Modal
@@ -105,5 +106,14 @@ export default {
 <style scoped>
 .none-label {
   margin-top: 30px;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
 }
 </style>

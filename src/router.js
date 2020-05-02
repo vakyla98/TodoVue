@@ -1,21 +1,24 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Home from './views/Home'
 
 Vue.use(Router) 
 
 export default new Router({
     mode: "history",
-    base: '/Vue3/',
+    // base: '/Vue3/',
     routes:[
         {
             path: '/dist',
-            component: Home
+            component: () => import('./views/Home.vue')
         },
         {
             path:'/dist/todos',
             component: () => import('./views/ToDos.vue')
+        },
+        {
+            path:'/dist/users',
+            component: () => import('./views/Users.vue')
         }
     ]
 })

@@ -1,37 +1,39 @@
 <template>
   <div class="header">
-    <v-navigation-drawer v-model="drawer" dark color="primary" app>
-      <v-list dense>
-        <v-list-item to="/dist">
-          <v-list-item-action>
-            <v-icon>mdi-home</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>Home</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-        <v-list-item href="#">
-          <v-list-item-action>
-            <v-icon>mdi-contact-mail</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>Contact</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-        <v-list-item href="#">
-          <v-list-item-action>
-            <v-icon>mdi-sword-cross</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>Roflik</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
+    <v-app-bar dark color="primary">
+      <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
+      <v-toolbar-title>My first app :3</v-toolbar-title>
+    </v-app-bar>
+    <v-navigation-drawer v-model="drawer" absolute temporary>
+      <v-list nav dense>
+        <v-list-item-group>
+          <v-list-item to="/dist/">
+            <v-list-item-action>
+              <v-icon>mdi-home</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>Home</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item to="/dist/todos">
+            <v-list-item-action>
+              <v-icon>mdi-contact-mail</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>Contact</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item to="/dist/users">
+            <v-list-item-action>
+              <v-icon>mdi-sword-cross</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>Roflik</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar app dark color="primary">
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-toolbar-title>ToDo app</v-toolbar-title>
-    </v-app-bar>
   </div>
 </template>
 
