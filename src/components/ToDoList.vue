@@ -8,7 +8,7 @@
             <CreateToDo @add="addHandler" />
             <v-row v-if="todos.length">
               <v-col>
-                  <h3>Uncompleted ToDo's</h3>
+                <h3>Uncompleted ToDo's</h3>
                 <v-list class="todo__list-completed" v-if="this.uncompleted.length">
                   <ToDoItem
                     v-for="todo in uncompleted"
@@ -22,8 +22,8 @@
                 <p v-else class="none-label text-center">None</p>
               </v-col>
               <v-col>
-                  <h3>Completed ToDo's</h3>
-                <v-list class="todo__list-uncompleted" v-if="this.completed.length" >
+                <h3>Completed ToDo's</h3>
+                <v-list class="todo__list-uncompleted" v-if="this.completed.length">
                   <ToDoItem
                     v-for="todo in completed"
                     :key="todo.id"
@@ -72,8 +72,7 @@ export default {
   },
   methods: {
     addHandler(text) {
-      this.todos.push({ id: v4(), text, isComplete: false });
-      console.log(this.uncompleted);
+      this.todos.push({ id: v4(), text, isCompleted: false });
     },
     editHandler(id) {
       this.targetIndex = this.todos.findIndex(todo => todo.id === id);
@@ -88,23 +87,23 @@ export default {
     },
     completeHandler(id) {
       this.targetIndex = this.todos.findIndex(todo => todo.id === id);
-      this.todos[this.targetIndex].isComplete = !this.todos[this.targetIndex]
-        .isComplete;
+      this.todos[this.targetIndex].isCompleted = !this.todos[this.targetIndex]
+        .isCompleted;
     }
   },
   computed: {
     completed() {
-      return this.todos.filter(todo => todo.isComplete == true);
+      return this.todos.filter(todo => todo.isCompleted == true);
     },
     uncompleted() {
-      return this.todos.filter(todo => todo.isComplete == false);
+      return this.todos.filter(todo => todo.isCompleted == false);
     }
   }
 };
 </script>
 
 <style scoped>
-.none-label{
-    margin-top:30px;
+.none-label {
+  margin-top: 30px;
 }
 </style>

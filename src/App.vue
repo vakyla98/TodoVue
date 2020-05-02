@@ -1,19 +1,19 @@
 <template>
   <v-app>
-    <ToDoList/>
+      <h2>App here</h2>
+      <router-view/>
+    <!-- <ToDoList/> -->
   </v-app>
 </template>
 
 <script>
-import ToDoList from "./components/ToDoList";
+// import ToDoList from "./components/ToDoList";
 
 export default {
   name: "App",
-  components: {
-    ToDoList
-  },
-
-  data: () => ({})
+//   components: {
+//     ToDoList
+//   }
 };
 </script>
 <style lang="scss">
