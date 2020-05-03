@@ -1,7 +1,5 @@
 <template>
   <v-app>
-    <!-- <h2>App here</h2>
-    <router-link to="/dist/todos">Its fake page</router-link>-->
     <ToDoHeader />
     <transition name="fade" mode="out-in">
       <router-view />

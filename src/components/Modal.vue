@@ -35,7 +35,7 @@ export default {
   methods: {
     submitHandler() {
       this.dialog = false;
-      this.$emit("close", this.newText);
+      this.$emit("submit", this.newText);
     }
   }
 };

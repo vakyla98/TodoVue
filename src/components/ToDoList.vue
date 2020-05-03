@@ -10,22 +10,22 @@
                 <h3>Uncompleted ToDo's</h3>
                 <v-list class="todo__list-completed" v-if="this.uncompleted.length">
                   <transition-group name="fade" tag="p">
-                  <ToDoItem
-                    v-for="todo in uncompleted"
-                    :key="todo.id"
-                    :todo="todo"
-                    @complete="completeHandler"
-                    @delete="deleteHandler"
-                    @edit="editHandler"
-                  />
+                    <ToDoItem
+                      v-for="todo in uncompleted"
+                      :key="todo.id"
+                      :todo="todo"
+                      @complete="completeHandler"
+                      @delete="deleteHandler"
+                      @edit="editHandler"
+                    />
                   </transition-group>
                 </v-list>
-                <p v-else class="none-label text-center">None</p>
+                <p v-else class="mt-7 text-center">None</p>
               </v-col>
               <v-col>
                 <h3>Completed ToDo's</h3>
                 <v-list class="todo__list-uncompleted" v-if="this.completed.length">
-                  <transition-group name="fade" tag="p">
+                  <transition-group name="fade">
                     <ToDoItem
                       v-for="todo in completed"
                       :key="todo.id"
@@ -36,10 +36,10 @@
                     />
                   </transition-group>
                 </v-list>
-                <p v-else class="none-label text-center">None</p>
+                <p v-else class="mt-7 text-center">None</p>
               </v-col>
             </v-row>
-            <p v-else class="none-label text-center">No tasks</p>
+            <p v-else class="mt-7 text-center">No tasks</p>
           </v-container>
         </v-col>
       </v-row>
@@ -47,7 +47,7 @@
     <Modal
       v-if="isEditTextWindowVisible"
       :text="this.todos[targetIndex].text"
-      @close="changeTextHandler"
+      @submit="changeTextHandler"
     />
   </div>
 </template>
@@ -99,14 +99,22 @@ export default {
     uncompleted() {
       return this.todos.filter(todo => todo.isCompleted == false);
     }
+  },
+  mounted: function() {
+    this.todos = JSON.parse(localStorage.getItem("tasks"));
+  },
+  watch: {
+    todos: {
+      deep: true,
+      handler(list) {
+        localStorage.setItem("tasks", JSON.stringify(list));
+      }
+    }
   }
 };
 </script>
 
 <style scoped>
-.none-label {
-  margin-top: 30px;
-}
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.3s;

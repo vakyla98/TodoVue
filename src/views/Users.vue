@@ -2,17 +2,27 @@
   <div>
     <v-content>
       <h2 class="text-center mt-7">There is our users</h2>
-      <v-list class="d-flex flex-wrap justify-space-between pa-10">
+      <v-list class="d-flex flex-wrap justify-center">
         <v-card
           v-for="user in userList"
           :key="user.id"
           @click="dummyMethod"
-          class="text-center mb-7"
+          class="text-center ma-3 pt-3"
           width="30%"
+          min-width="200px"
         >
-          <p class="font-weight-bold">Id: {{user.id}}</p>
-          <p>Name: {{user.name}}</p>
-          <p>Company: {{user.company}}</p>
+          <p>
+            <span class="font-weight-bold">Id:</span>
+            <span class="red--text">{{user.id}}</span>
+          </p>
+          <p>
+            <span class="font-weight-bold">Name:</span>
+            {{user.name}}
+          </p>
+          <p>
+            <span class="font-weight-bold">Company:</span>
+            {{user.company}}
+          </p>
         </v-card>
       </v-list>
     </v-content>

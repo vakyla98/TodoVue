@@ -22,7 +22,7 @@ export default {
   methods: {
     addHandler() {
       this.$emit("add", this.text);
-      this.$refs.input.resetValidation()
+        this.$refs.input.resetValidation()
       this.text = "";
     }
   }
