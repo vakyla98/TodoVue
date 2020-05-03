@@ -14,7 +14,7 @@
                       v-for="todo in uncompleted"
                       :key="todo.id"
                       :todo="todo"
-                      @complete="completeHandler"
+                      @complete="toggleTodoState"
                       @delete="deleteHandler"
                       @edit="editHandler"
                     />
@@ -30,7 +30,7 @@
                       v-for="todo in completed"
                       :key="todo.id"
                       :todo="todo"
-                      @complete="completeHandler"
+                      @complete="toggleTodoState"
                       @delete="deleteHandler"
                       @edit="editHandler"
                     />
@@ -46,7 +46,7 @@
     </v-content>
     <Modal
       v-if="isEditTextWindowVisible"
-      :text="this.todos[targetIndex].text"
+      :text="activeTodo.text"
       @submit="changeTextHandler"
     />
   </div>
@@ -57,13 +57,13 @@ import { v4 } from "uuid";
 import ToDoItem from "./ToDoItem.vue";
 import CreateToDo from "./CreateToDo.vue";
 import Modal from "./Modal.vue";
+
 export default {
   data() {
     return {
       todos: [],
-      targetIndex: Number,
+      activeTodo: null,
       isEditTextWindowVisible: false,
-      isDialogOpened: false
     };
   },
   components: {
@@ -76,20 +76,19 @@ export default {
       this.todos.push({ id: v4(), text, isCompleted: false });
     },
     editHandler(id) {
-      this.targetIndex = this.todos.findIndex(todo => todo.id === id);
-      this.isEditTextWindowVisible = true;
+      this.activeTodo = this.todos.find(todo => todo.id === id);
+      this.isEditTextWindowVisible = true
     },
     changeTextHandler(newText) {
-      this.todos[this.targetIndex].text = newText;
+      this.activeTodo.text = newText;
       this.isEditTextWindowVisible = false;
     },
     deleteHandler(id) {
       this.todos = this.todos.filter(todo => todo.id !== id);
     },
-    completeHandler(id) {
-      this.targetIndex = this.todos.findIndex(todo => todo.id === id);
-      this.todos[this.targetIndex].isCompleted = !this.todos[this.targetIndex]
-        .isCompleted;
+    toggleTodoState(id) {
+      const item = this.todos.find(todo => todo.id === id);
+      item.isCompleted = !item.isCompleted
     }
   },
   computed: {
