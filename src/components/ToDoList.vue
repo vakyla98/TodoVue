@@ -101,7 +101,8 @@ export default {
     }
   },
   mounted: function() {
-    this.todos = JSON.parse(localStorage.getItem("tasks"));
+    let localData = JSON.parse(localStorage.getItem("tasks"))
+    if (localData) this.todos = localData;
   },
   watch: {
     todos: {
