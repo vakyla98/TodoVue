@@ -19,6 +19,11 @@ export default new Router({
         {
             path:'/dist/users',
             component: () => import('./views/Users.vue')
+        },
+        {
+            // instead 404 page
+            path:'/*',
+            redirect: '/dist'
         }
     ]
 })
