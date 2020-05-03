@@ -13,9 +13,9 @@ npm run build
 # echo 'www.example.com' > CNAME
 
 # git init
-git add -A
-git commit -m 'deploy'
-git push -f git@github.com:vakyla98/Vue3.git master:gh-pages
+git add .
+git commit -a -m 'deploy'
+git push
 # если вы публикуете по адресу https://<USERNAME>.github.io
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
 
