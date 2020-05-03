@@ -7,12 +7,12 @@ set -e
 npm run build
 
 # переход в каталог сборки
-cd dist
+# cd dist
 
 # если вы публикуете на пользовательский домен
 # echo 'www.example.com' > CNAME
 
-git init
+# git init
 git add -A
 git commit -m 'deploy'
 git push -f git@github.com:vakyla98/Vue3.git master:gh-pages
