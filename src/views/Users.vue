@@ -30,36 +30,25 @@
 </template>
 
 <script>
-// import { UserService } from '../services'
+import { userService } from "../services/index";
 
 export default {
   data() {
     return {
-      userList: [],
-    }
+      userList: []
+    };
   },
-  // async mounted() {
-  //   const users = await UserService.getUsers()
-  //   users.forEach(user => {
-  //     this.userList.push({
-  //           id: user.id,
-  //           name: user.name,
-  //           company: user.company.name,
-  //         })
-  //   })
   async mounted() {
-    await fetch('https://jsonplaceholder.typicode.com/users')
-      .then(response => response.json())
-      .then(users =>
-        users.forEach(user =>
-          this.userList.push({
-            id: user.id,
-            name: user.name,
-            company: user.company.name,
-          })
-        )
-      )
-  },
-}
+    const users = await userService.getUsers()
+    users.forEach(user => {
+      this.userList.push({
+        id: user.id,
+        name: user.name,
+        company: user.company.name
+      });
+    });
+  }
+
+};
 </script>
 <style scoped></style>
