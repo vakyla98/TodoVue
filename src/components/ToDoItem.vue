@@ -7,25 +7,24 @@
     <v-row justify="center" align="center">
       <v-checkbox
         v-model="todo.isCompleted"
-        @click="$emit('complete', todo.id)"
+        @click="todoStateHandler"
       ></v-checkbox>
       <v-col class="text-left">
         <span class="todo-text">{{ todo.text }}</span>
       </v-col>
       <v-col cols="auto">
-        <v-btn depressed small color="primary" @click="$emit('edit', todo.id)"
-          >Edit</v-btn
-        >
+        <v-btn depressed small color="primary" @click="editHandler">Edit</v-btn>
       </v-col>
       <v-col cols="auto">
-        <v-btn depressed small color="primary" @click="$emit('delete', todo.id)"
-          >Del</v-btn
-        >
+        <v-btn depressed small color="primary" @click="delHandler">Del</v-btn>
       </v-col>
     </v-row>
   </v-list-item>
 </template>
+
 <script>
+import { mapMutations } from 'vuex'
+
 export default {
   name: 'ToDoItem',
   props: {
@@ -33,6 +32,33 @@ export default {
       type: Object,
       require: true,
     },
+  },
+  methods: {
+    ...mapMutations(['editText', 'deleteTodo', 'toggleTodoState']),
+    editHandler() {
+      this.editText({
+        id: this.todo.id
+      })
+    },
+    todoStateHandler() {
+      this.toggleTodoState({
+        id: this.todo.id
+      })
+    },
+    delHandler() {
+      this.deleteTodo({
+        id: this.todo.id
+      })
+    },
+    // addHandler() {
+    //   this.addTodo({
+    //     id: v4(),
+    //     text: this.text,
+    //     isCompleted: false,
+    //   })
+    //   this.$refs.input.resetValidation()
+    //   this.text = ''
+    // },
   },
 }
 </script>

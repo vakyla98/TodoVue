@@ -5,11 +5,20 @@
         <v-card>
           <v-card-title class="headline">Enter new text</v-card-title>
           <v-container>
-            <v-text-field v-model="newText" @keyup.enter="submitHandler"></v-text-field>
+            <v-text-field
+              v-model="newText"
+              @keyup.enter="submitHandler"
+            ></v-text-field>
           </v-container>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn  class="modal-default-button" color="primary" dark @click="submitHandler">Change</v-btn>
+            <v-btn
+              class="modal-default-button"
+              color="primary"
+              dark
+              @click="submitHandler"
+              >Change</v-btn
+            >
           </v-card-actions>
         </v-card>
       </v-dialog>
@@ -18,28 +27,27 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
+
 export default {
-  name: "Modal",
+  name: 'Modal',
   data() {
     return {
-      newText: this.text,
-      dialog: true
-    };
-  },
-  props: {
-    text: {
-      type: String,
-      require: true
+      newText: this.$store.getters.activeTodo.text,
+      dialog: true,
     }
   },
   methods: {
+    ...mapMutations(['submitText']),
     submitHandler() {
-      this.dialog = false;
-      this.$emit("submit", this.newText);
-    }
-  }
-};
+      console.log(this.$store.getters.activeTodo.text )
+      this.submitText({
+        text: this.newText,
+      })
+      this.dialog = false
+    },
+  },
+}
 </script>
 
-<style>
-</style>
+<style></style>
