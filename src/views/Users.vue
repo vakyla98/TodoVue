@@ -47,7 +47,7 @@ export default {
         this.isLoading = false
         if (response.status == 200) {
           return response.data
-        } else throw 'Bad status'
+        }
       })
       .then(users => {
         users.forEach(user => {
@@ -59,9 +59,10 @@ export default {
         })
       })
       .catch(err => {
+        this.isLoading = false
         this.error = err.message
+        console.log(this.error)
       })
-    //   .finally((this.isLoading = false))
   },
 }
 </script>
