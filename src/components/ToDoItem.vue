@@ -1,14 +1,7 @@
 <template>
-  <v-list-item
-    class="todolist__item"
-    :class="{ completed: todo.isCompleted }"
-    :id="todo.id"
-  >
+  <v-list-item class="todolist__item" :class="{ completed: todo.isCompleted }" :id="todo.id">
     <v-row justify="center" align="center">
-      <v-checkbox
-        v-model="todo.isCompleted"
-        @click="todoStateHandler"
-      ></v-checkbox>
+      <v-checkbox v-model="todo.isCompleted" @click="todoStateHandler"></v-checkbox>
       <v-col class="text-left">
         <span class="todo-text">{{ todo.text }}</span>
       </v-col>
@@ -36,29 +29,14 @@ export default {
   methods: {
     ...mapMutations(['editText', 'deleteTodo', 'toggleTodoState']),
     editHandler() {
-      this.editText({
-        id: this.todo.id
-      })
+      this.editText(this.todo.id)
     },
     todoStateHandler() {
-      this.toggleTodoState({
-        id: this.todo.id
-      })
+      this.toggleTodoState(this.todo.id)
     },
     delHandler() {
-      this.deleteTodo({
-        id: this.todo.id
-      })
+      this.deleteTodo(this.todo.id)
     },
-    // addHandler() {
-    //   this.addTodo({
-    //     id: v4(),
-    //     text: this.text,
-    //     isCompleted: false,
-    //   })
-    //   this.$refs.input.resetValidation()
-    //   this.text = ''
-    // },
   },
 }
 </script>

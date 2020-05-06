@@ -8,32 +8,18 @@
             <v-row v-if="allTodos.length">
               <v-col>
                 <h3>Uncompleted ToDo's</h3>
-                <v-list
-                  class="todo__list-completed"
-                  v-if="this.uncompleted.length"
-                >
+                <v-list class="todo__list-completed" v-if="this.uncompleted.length">
                   <transition-group name="fade" tag="p">
-                    <ToDoItem
-                      v-for="todo in uncompleted"
-                      :key="todo.id"
-                      :todo="todo"
-                    />
+                    <ToDoItem v-for="todo in uncompleted" :key="todo.id" :todo="todo" />
                   </transition-group>
                 </v-list>
                 <p v-else class="mt-7 text-center">None</p>
               </v-col>
               <v-col>
                 <h3>Completed ToDo's</h3>
-                <v-list
-                  class="todo__list-uncompleted"
-                  v-if="this.completed.length"
-                >
+                <v-list class="todo__list-uncompleted" v-if="this.completed.length">
                   <transition-group name="fade">
-                    <ToDoItem
-                      v-for="todo in completed"
-                      :key="todo.id"
-                      :todo="todo"
-                    />
+                    <ToDoItem v-for="todo in completed" :key="todo.id" :todo="todo" />
                   </transition-group>
                 </v-list>
                 <p v-else class="mt-7 text-center">None</p>
@@ -52,7 +38,7 @@
 import ToDoItem from './ToDoItem.vue'
 import CreateToDo from './CreateToDo.vue'
 import Modal from './Modal.vue'
-
+import { mapMutations } from 'vuex'
 export default {
   components: {
     CreateToDo,
@@ -74,27 +60,20 @@ export default {
     },
   },
   methods: {
-    // editHandler(id) {
-    //   this.activeTodo = this.todos.find(todo => todo.id === id)
-    //   this.isEditTextWindowVisible = true
-    // },
-    // changeTextHandler(newText) {
-    //   this.activeTodo.text = newText
-    //   this.isEditTextWindowVisible = false
-    // }
+    ...mapMutations(['getDataFromStorage']),
   },
-  // mounted: function() {
-  //   let localData = JSON.parse(localStorage.getItem('tasks'))
-  //   if (localData) this.todos = localData
-  // },
-  // watch: {
-  //   todos: {
-  //     deep: true,
-  //     handler(list) {
-  //       localStorage.setItem('tasks', JSON.stringify(list))
-  //     },
-  //   },
-  // },
+  mounted: function() {
+    let localData = JSON.parse(localStorage.getItem('tasks'))
+    if (localData) this.getDataFromStorage(localData)
+  },
+  watch: {
+    allTodos: {
+      deep: true,
+      handler(list) {
+        localStorage.setItem('tasks', JSON.stringify(list))
+      },
+    },
+  },
 }
 </script>
 
@@ -108,4 +87,10 @@ export default {
 .fade-leave-active {
   opacity: 0;
 }
+/* Подскажите пожалуйста. Есть простая аппка todo.
+ Раньше я в компоненте List хранящем все todos в watch записывал все todos в localStorage а в mounted хуке их доставал из localStorage. 
+Теперь переписал все с vuex и у меня встал вопрос.
+Будет ли правильным все так же в компоненте списка работать с localStorage доставая и записывая в него данные? Или...  */
 </style>
+
+

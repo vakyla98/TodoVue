@@ -16,22 +16,25 @@ export default ({
         },
     },
     mutations: {
+        getDataFromStorage(state,data){
+            state.todos = data
+        },
         addTodo(state, newTodo) {
             state.todos.push(newTodo)
         },
-        editText(state, curentTodo) {
+        editText(state, id) {
             state.isModalVisible = true
-            state.activeTodo = state.todos.find(todo => todo.id === curentTodo.id)
+            state.activeTodo = state.todos.find(todo => todo.id === id)
         },
         submitText(state, newText) {
-            state.activeTodo.text = newText.text
+            state.activeTodo.text = newText
             state.isModalVisible = false
         },
-        deleteTodo(state, curentTodo) {
-            state.todos = state.todos.filter(todo => todo.id !== curentTodo.id)
+        deleteTodo(state, id) {
+            state.todos = state.todos.filter(todo => todo.id !== id)
         },
-        toggleTodoState(state, curentTodo) {
-            let item = state.todos.find(todo => todo.id === curentTodo.id)
+        toggleTodoState(state, id) {
+            let item = state.todos.find(todo => todo.id === id)
             item.isCompleted = !item.isCompleted
         }
     },
