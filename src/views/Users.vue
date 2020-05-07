@@ -3,9 +3,7 @@
     <v-content>
       <h2 class="text-center mt-7">There is our users</h2>
       <p v-if="isLoading">User loading...</p>
-      <p v-if="error">Ooops, error! Please try later</p>
-      <v-alert v-if="error" type="error" width="30%">I'm an error alert.</v-alert>
-      <v-list v-else class="d-flex flex-wrap justify-center">
+      <v-list v-if="userList.length" class="d-flex flex-wrap justify-center">
         <v-card
           v-for="user in userList"
           :key="user.id"
@@ -26,6 +24,11 @@
           </p>
         </v-card>
       </v-list>
+      <transition name="fade" v-if="error">
+        <div class="d-flex justify-center ma-5 p">
+          <v-alert type="error" class="d-flex justify-center">Oops, error! Please, try later.</v-alert>
+        </div>
+      </transition>
     </v-content>
   </div>
 </template>
@@ -84,16 +87,9 @@ export default {
   },
 }
 </script>
-<style>
+<style scoped>
 .user-card {
   width: 30%;
   min-width: 200px;
-}
-
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
-  opacity: 0;
 }
 </style>

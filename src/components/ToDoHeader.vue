@@ -1,10 +1,10 @@
 <template>
   <div class="header">
-    <v-app-bar dark color="primary">
+    <v-app-bar dark>
       <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
-      <v-toolbar-title>My first app</v-toolbar-title>
+      <v-toolbar-title >My first app</v-toolbar-title>
     </v-app-bar>
-    <v-navigation-drawer v-model="drawer" absolute temporary>
+    <v-navigation-drawer  v-model="drawer" absolute temporary>
       <v-list nav dense>
         <v-list-item-group>
           <v-list-item to="/dist/" exact>

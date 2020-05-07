@@ -1,18 +1,23 @@
 <template>
-  <v-list-item class="todolist__item" :class="{ completed: todo.isCompleted }" :id="todo.id">
-    <v-row justify="center" align="center">
-      <v-checkbox v-model="todo.isCompleted" @click="todoStateHandler"></v-checkbox>
-      <v-col class="text-left">
-        <span class="todo-text">{{ todo.text }}</span>
-      </v-col>
-      <v-col cols="auto">
-        <v-btn depressed small color="primary" @click="editHandler">Edit</v-btn>
-      </v-col>
-      <v-col cols="auto">
-        <v-btn depressed small color="primary" @click="delHandler">Del</v-btn>
-      </v-col>
-    </v-row>
-  </v-list-item>
+  <div>
+    <v-list-item :id="todo.id">
+      <v-row justify="center" align="center">
+        <v-checkbox v-model="todo.isCompleted" @click="todoStateHandler"></v-checkbox>
+        <v-col class="text-left">
+          <p :class="{ completed: todo.isCompleted }" class="todo-text">{{ todo.text }}</p>
+        </v-col>
+        <v-item-group class="xxx">
+          <v-btn icon small color="primary" @click="editHandler">
+            <v-icon>mdi-pencil</v-icon>
+          </v-btn>
+          <v-btn icon small color="primary" @click="delHandler">
+            <v-icon>mdi-delete</v-icon>
+          </v-btn>
+        </v-item-group>
+      </v-row>
+    </v-list-item>
+    <v-divider dark></v-divider>
+  </div>
 </template>
 
 <script>
@@ -44,8 +49,9 @@ export default {
 <style lang="scss">
 .completed {
   filter: opacity(0.7);
-  span.todo-text {
-    text-decoration: line-through;
-  }
+  text-decoration: line-through;
+}
+.todo-text {
+  min-width: 240px;
 }
 </style>

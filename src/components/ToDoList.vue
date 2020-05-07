@@ -5,26 +5,26 @@
         <v-col xl="10">
           <v-container>
             <CreateToDo />
-            <v-row v-if="allTodos.length">
-              <v-col>
-                <h3>Uncompleted ToDo's</h3>
-                <v-list class="todo__list-completed" v-if="this.uncompleted.length">
-                  <transition-group name="fade" tag="p">
+            <div class="list-wrapper" v-if="allTodos.length">
+              <div class="list">
+                <h3 class='mb-5'>Uncompleted ToDo's</h3>
+                <v-list class="todo-list" v-if="this.uncompleted.length">
+                  <transition-group name="fade">
                     <ToDoItem v-for="todo in uncompleted" :key="todo.id" :todo="todo" />
                   </transition-group>
                 </v-list>
                 <p v-else class="mt-7 text-center">None</p>
-              </v-col>
-              <v-col>
-                <h3>Completed ToDo's</h3>
-                <v-list class="todo__list-uncompleted" v-if="this.completed.length">
+              </div>
+              <div class="list">
+                <h3 class='mb-5'>Completed ToDo's</h3>
+                <v-list class="todo-list" v-if="this.completed.length">
                   <transition-group name="fade">
                     <ToDoItem v-for="todo in completed" :key="todo.id" :todo="todo" />
                   </transition-group>
                 </v-list>
                 <p v-else class="mt-7 text-center">None</p>
-              </v-col>
-            </v-row>
+              </div>
+            </div>
             <p v-else class="mt-7 text-center">No tasks</p>
           </v-container>
         </v-col>
@@ -38,7 +38,10 @@
 import ToDoItem from './ToDoItem.vue'
 import CreateToDo from './CreateToDo.vue'
 import Modal from './Modal.vue'
+
+import { mapGetters } from 'vuex'
 import { mapMutations } from 'vuex'
+
 export default {
   components: {
     CreateToDo,
@@ -46,12 +49,7 @@ export default {
     Modal,
   },
   computed: {
-    allTodos() {
-      return this.$store.getters.allTodos
-    },
-    isModalVisible() {
-      return this.$store.getters.isModalVisible
-    },
+    ...mapGetters(['allTodos', 'isModalVisible']),
     completed() {
       return this.allTodos.filter(todo => todo.isCompleted == true)
     },
@@ -77,20 +75,31 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang='scss' scoped>
+.list-wrapper {
+  display: flex;
+}
+.list {
+  width: 100%;
+  padding: 0 10px;
+}
+.todo-list{
+    padding: 0;
+}
+@media screen and (max-width: 767px) {
+  .list-wrapper {
+    display: block;
+  }
+}
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.3s;
 }
-
 .fade-enter,
 .fade-leave-active {
   opacity: 0;
 }
-/* Подскажите пожалуйста. Есть простая аппка todo.
- Раньше я в компоненте List хранящем все todos в watch записывал все todos в localStorage а в mounted хуке их доставал из localStorage. 
-Теперь переписал все с vuex и у меня встал вопрос.
-Будет ли правильным все так же в компоненте списка работать с localStorage доставая и записывая в него данные? Или...  */
 </style>
 
 
