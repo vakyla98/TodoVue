@@ -20,7 +20,7 @@ export default ({
             state.todos = data
         },
         addTodo(state, newTodo) {
-            state.todos.push(newTodo)
+            state.todos.unshift(newTodo)
         },
         editText(state, id) {
             state.isModalVisible = true

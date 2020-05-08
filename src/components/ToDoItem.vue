@@ -1,19 +1,18 @@
 <template>
   <div>
-    <v-list-item :id="todo.id">
+    <v-list-item :id="todo.id" class="ml-3">
       <v-row justify="center" align="center">
         <v-checkbox v-model="todo.isCompleted" @click="todoStateHandler"></v-checkbox>
         <v-col class="text-left">
-          <p :class="{ completed: todo.isCompleted }" class="todo-text">{{ todo.text }}</p>
+          <p :class="{ completed: todo.isCompleted }" class="todo-text ma-0">{{ todo.text }}</p>
         </v-col>
-        <v-item-group class="xxx">
-          <v-btn icon small color="primary" @click="editHandler">
-            <v-icon>mdi-pencil</v-icon>
-          </v-btn>
-          <v-btn icon small color="primary" @click="delHandler">
-            <v-icon>mdi-delete</v-icon>
-          </v-btn>
-        </v-item-group>
+
+        <v-btn icon small color="primary" @click="editHandler">
+          <v-icon>mdi-pencil</v-icon>
+        </v-btn>
+        <v-btn icon small color="primary" @click="delHandler">
+          <v-icon>mdi-delete</v-icon>
+        </v-btn>
       </v-row>
     </v-list-item>
     <v-divider dark></v-divider>
@@ -52,6 +51,6 @@ export default {
   text-decoration: line-through;
 }
 .todo-text {
-  min-width: 240px;
+  min-width: 210px;
 }
 </style>

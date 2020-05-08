@@ -2,8 +2,13 @@
   <div>
     <v-content>
       <h2 class="text-center mt-7">There is our users</h2>
-      <p v-if="isLoading">User loading...</p>
-      <v-list v-if="userList.length" class="d-flex flex-wrap justify-center">
+      <transition name="fade" v-if="isLoading">
+        <div class="d-flex align-center ma-5 flex-column">
+          <HexagonSpin v-if="isLoading"></HexagonSpin>
+          <p class='pt-5'>Users loading</p>
+        </div>
+      </transition>
+      <v-list v-if="userList.length" color="transparent" class="d-flex flex-wrap justify-center">
         <v-card
           v-for="user in userList"
           :key="user.id"
@@ -26,7 +31,7 @@
       </v-list>
       <transition name="fade" v-if="error">
         <div class="d-flex justify-center ma-5 p">
-          <v-alert type="error" class="d-flex justify-center">Oops, error! Please, try later.</v-alert>
+          <v-alert type="error" color="secondary" dense >Oops, error! Please, try later.</v-alert>
         </div>
       </transition>
     </v-content>
@@ -35,8 +40,12 @@
 
 <script>
 import { userService } from '../services'
+import HexagonSpin from 'vue-loading-spinner/src/components/Hexagon'
 
 export default {
+  components: {
+    HexagonSpin,
+  },
   data() {
     return {
       userList: [],
