@@ -1,16 +1,15 @@
 <template>
   <div>
-    <v-list-item :id="todo.id" class="ml-3">
+    <v-list-item :id="todo.id" class="ml-3 list-item">
       <v-row justify="center" align="center">
-        <v-checkbox v-model="todo.isCompleted" @click="todoStateHandler"></v-checkbox>
+        <v-checkbox v-model="todo.isCompleted"></v-checkbox>
         <v-col class="text-left">
           <p :class="{ completed: todo.isCompleted }" class="todo-text ma-0">{{ todo.text }}</p>
         </v-col>
-
-        <v-btn icon small color="primary" @click="editHandler">
+        <v-btn class="edit-btn" icon small color="primary" @click="editHandler">
           <v-icon>mdi-pencil</v-icon>
         </v-btn>
-        <v-btn icon small color="primary" @click="delHandler">
+        <v-btn class="del-btn" icon small color="primary" @click="delHandler">
           <v-icon>mdi-delete</v-icon>
         </v-btn>
       </v-row>
@@ -20,8 +19,6 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
-
 export default {
   name: 'ToDoItem',
   props: {
@@ -31,15 +28,14 @@ export default {
     },
   },
   methods: {
-    ...mapMutations(['editText', 'deleteTodo', 'toggleTodoState']),
     editHandler() {
-      this.editText(this.todo.id)
-    },
-    todoStateHandler() {
-      this.toggleTodoState(this.todo.id)
+      this.$emit('editTodo', this.todo.id)
     },
     delHandler() {
-      this.deleteTodo(this.todo.id)
+      this.$emit('delTodo', this.todo.id)
+    },
+    todoStateHandler() {
+      this.todo.isCompleted = !this.todo.isCompleted
     },
   },
 }
