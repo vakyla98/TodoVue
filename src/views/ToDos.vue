@@ -6,7 +6,7 @@
           <v-col xl="10">
             <v-container>
               <CreateToDo @addTodo="addTodo" />
-              <ToDoList :todos="todos" @addTodo="addTodo" @delTodo="delTodo" @editTodo="editTodo" />
+              <ToDoList :todos="todos" @delTodo="delTodo" @editTodo="editTodo" @toogleState="toogleState"/>
             </v-container>
           </v-col>
         </v-row>
@@ -41,6 +41,10 @@ export default {
     },
     delTodo(id) {
       this.todos = this.todos.filter(todo => todo.id !== id)
+    },
+    toogleState(id) {
+      this.activeTodo = this.todos.find(todo => todo.id === id)
+      this.activeTodo.isCompleted = !this.activeTodo.isCompleted
     },
     editTodo(id) {
       this.isModalVisible = true

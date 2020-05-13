@@ -8,6 +8,7 @@
             v-for="todo in uncompleted"
             :key="todo.id"
             :todo="todo"
+            @toogleState="toogleState"
             @delTodo="delTodo"
             @editTodo="editTodo"
           />
@@ -23,6 +24,7 @@
             :todo="todo"
             @delTodo="delTodo"
             @editTodo="editTodo"
+            @toogleState="toogleState"
           />
         </v-list>
         <p v-else class="mt-7 text-center">None</p>
@@ -56,6 +58,9 @@ export default {
     },
     editTodo(id) {
       this.$emit('editTodo', id)
+    },
+    toogleState(id) {
+      this.$emit('toogleState', id)
     },
   },
 }

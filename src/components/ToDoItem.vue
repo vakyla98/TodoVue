@@ -2,7 +2,7 @@
   <div>
     <v-list-item :id="todo.id" class="ml-3 list-item">
       <v-row justify="center" align="center">
-        <v-checkbox v-model="todo.isCompleted"></v-checkbox>
+        <v-checkbox class="checkbox" v-model="checked"></v-checkbox>
         <v-col class="text-left">
           <p :class="{ completed: todo.isCompleted }" class="todo-text ma-0">{{ todo.text }}</p>
         </v-col>
@@ -27,6 +27,16 @@ export default {
       require: true,
     },
   },
+  computed: {
+    checked: {
+      get() {
+        return this.todo.isCompleted
+      },
+      set() {
+        this.$emit('toogleState', this.todo.id)
+      },
+    },
+  },
   methods: {
     editHandler() {
       this.$emit('editTodo', this.todo.id)
@@ -34,9 +44,9 @@ export default {
     delHandler() {
       this.$emit('delTodo', this.todo.id)
     },
-    todoStateHandler() {
-      this.todo.isCompleted = !this.todo.isCompleted
-    },
+    // todoStateHandler() {
+    //   this.$emit('toogleState', this.todo.id)
+    // },
   },
 }
 </script>
