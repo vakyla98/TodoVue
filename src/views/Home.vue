@@ -7,32 +7,32 @@
       </p>
       <v-list class="tech">
         <v-subheader>Technologies in this project:</v-subheader>
-        <v-list-item ripple>
-          <v-icon class="mr-5">mdi-check-bold</v-icon>
-          
-          <v-list-item-content
-            >Line item Secondary text Lorem ipsum dolor, sit amet consectetur
-            adipisicing elit. Nihil amet voluptatem alias veritatis ipsam,
-            commodi laboriosam, officiis, fugiat doloremque itaque ratione.
-            Fugiat voluptate corporis voluptates eveniet ducimus quasi labore
-            ab.</v-list-item-content
-          >
-        </v-list-item>
-        <v-list-item ripple>
+        <v-list-item ripple v-for="tech in technologies" :key="tech">
           <v-icon class="mr-5">mdi-check-bold</v-icon>
           <v-list-item-content
-            >Line item Secondary text Lorem ipsum dolor, sit amet consectetur
-            adipisicing elit. Nihil amet voluptatem alias veritatis ipsam,
-            commodi laboriosam, officiis, fugiat doloremque itaque ratione.
-            Fugiat voluptate corporis voluptates eveniet ducimus quasi labore
-            ab.</v-list-item-content
+            >{{tech}}</v-list-item-content
           >
         </v-list-item>
       </v-list>
     </v-content>
   </div>
 </template>
-
+<script>
+export default {
+    data(){
+        return{
+            technologies:[
+                'Vue.js',
+                'Vue-cli',
+                'Vue-router',
+                'Vuetify',
+                'Fetch API(Axios)',
+                'Jest(unit testing)',
+                ]
+        }
+    }
+}
+</script>
 <style lang="scss">
 .tech {
   width: 100%;
