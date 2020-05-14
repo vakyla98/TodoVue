@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="list-wrapper" v-if="todos.length">
-      <div class="list">
+      <div class="list uncompletedList">
         <h3 class="mb-5">Uncompleted ToDo's</h3>
         <v-list class="todo-list" v-if="this.uncompleted.length">
           <ToDoItem
@@ -11,11 +11,12 @@
             @toogleState="toogleState"
             @delTodo="delTodo"
             @editTodo="editTodo"
+            class='uncompletedTodo'
           />
         </v-list>
         <p v-else class="mt-7 text-center">None</p>
       </div>
-      <div class="list">
+      <div class="list completedList">
         <h3 class="mb-5">Completed ToDo's</h3>
         <v-list class="todo-list" v-if="this.completed.length">
           <ToDoItem
@@ -25,6 +26,7 @@
             @delTodo="delTodo"
             @editTodo="editTodo"
             @toogleState="toogleState"
+            class='completedTodo'
           />
         </v-list>
         <p v-else class="mt-7 text-center">None</p>

@@ -21,19 +21,15 @@ describe('ToDoList', () => {
             propsData: { todos },
         })
     });
-
-    // it('render correctly', () => {
-    //     expect(item.element).toMatchSnapshot()
-    // })
-    it('render completed todos correctly', () => {
-        let completed = item.findAll('.')
-        console.log(completed)
-        expect(item.emitted().toogleState).toBe(4)
+    it('render correctly', () => {
+        expect(item.element).toMatchSnapshot()
     })
-
-    // it('Delete button emit delete handler', () => {
-    //     let delBtn = item.find('.del-btn')
-    //     delBtn.trigger('click')
-    //     expect(item.emitted().delTodo).toBeTruthy()
-    // })
+    it('render completed todos correctly', () => {
+        let completed = item.findAll('.completedList .completedTodo')
+        expect(completed).toHaveLength(4)
+    })
+    it('render uncompleted todos correctly', () => {
+        let uncompleted = item.findAll('.uncompletedList .uncompletedTodo')
+        expect(uncompleted).toHaveLength(2)
+    })
 })
