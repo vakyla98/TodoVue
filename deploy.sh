@@ -14,9 +14,10 @@ npm run build
 
 # git init
 git add .
-# read -p 'Enter your commit for deploy: ' commitName
-# git commit -a -m $commitName
-git commit -a -m 'deploy'
+echo 'Enter your commit for deploy: '
+read -r commitName
+git commit -a -m "${commitName}"
+# git commit -a -m 'deploy'
 git push
 echo 'Succesfull push. Congrat!'
 # если вы публикуете по адресу https://<USERNAME>.github.io
