@@ -56,7 +56,7 @@ exports[`ToDoList render correctly 1`] = `
                         value=""
                       />
                       <div
-                        class="v-input--selection-controls__ripple primary--text"
+                        class="v-input--selection-controls__ripple"
                       />
                     </div>
                   </div>
@@ -156,7 +156,7 @@ exports[`ToDoList render correctly 1`] = `
                         value=""
                       />
                       <div
-                        class="v-input--selection-controls__ripple primary--text"
+                        class="v-input--selection-controls__ripple"
                       />
                     </div>
                   </div>

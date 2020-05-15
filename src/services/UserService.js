@@ -7,7 +7,6 @@ export class UserService {
     }
     getUsers() {
         return axios
-            .get(this.http)
-            // .then(response => response.data)
+            .get(this.http).then(response => response.data)
     }
 }

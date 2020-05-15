@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import ToDoItem from '../src/components/ToDoItem.vue'
+import ToDoItem from '../components/ToDoItem.vue'
 
 import Vue from 'vue'
 import Vuetify from 'vuetify';

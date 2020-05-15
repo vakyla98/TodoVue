@@ -28,6 +28,7 @@ export default {
                 'Vuetify',
                 'Fetch API(Axios)',
                 'Jest(unit testing)',
+                'Local storage'
                 ]
         }
     }

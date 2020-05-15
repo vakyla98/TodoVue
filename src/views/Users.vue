@@ -6,7 +6,11 @@
         <HexagonSpin v-if="isLoading"></HexagonSpin>
         <p class="pt-5">Users loading</p>
       </div>
-      <v-list v-if="userList.length" color="transparent" class="d-flex flex-wrap justify-center">
+      <v-list
+        v-if="userList.length"
+        color="transparent"
+        class="d-flex flex-wrap justify-center"
+      >
         <v-card
           v-for="user in userList"
           :key="user.id"
@@ -28,7 +32,9 @@
         </v-card>
       </v-list>
       <div class="d-flex justify-center ma-5 p" v-if="error">
-        <v-alert type="error" color="secondary" dense>Oops, error! Please, try later.</v-alert>
+        <v-alert type="error" color="secondary" dense
+          >Oops, error! Please, try later.</v-alert
+        >
       </div>
     </v-content>
   </div>
@@ -49,46 +55,42 @@ export default {
       error: null,
     }
   },
-  async mounted() {
-    // const users = userService.getUsers()
-    // await users
-    //   .then(response => {
-    //     this.isLoading = false
-    //     if (response.status == 200) {  //Проверка на 200 статус не обязательна
-    //       return response.data
-    //     }
-    //   })
-    //   .then(users => {
-    //     users.forEach(user => {
-    //       this.userList.push({
-    //         id: user.id,
-    //         name: user.name,
-    //         company: user.company.name,
-    //       })
-    //     })
-    //   })
-    //   .catch(err => {
-    //     this.isLoading = false
-    //     this.error = err.message
-    //     console.log(this.error)
-    //   })
-
-    try {
-      let users = await userService.getUsers()
-      users = users.data // Эту строчку можно раскоментировать в UserService, оставил здесь для удобства сравнения с методом выше
-      users.forEach(user => {
-        this.userList.push({
-          id: user.id,
-          name: user.name,
-          company: user.company.name,
+  methods: {
+    async getUserList() {
+      try {
+        let x = new Promise(resolve => {
+          //Декоративный промис для задержки загрузки данных на 3 сек, что бы показать полюзователю красивый спиннер, а вам что я немного понимаю promise :)
+          setTimeout(() => {
+            resolve(true)
+          }, 2000)
         })
-      })
-    } catch (err) {
-      this.error = err
-      console.log(this.error)
-    } finally {
-      this.isLoading = false
-    }
+        if (await x) {
+          let localUsers = JSON.parse(localStorage.getItem('users'))
+          if (localUsers) {
+            this.userList = localUsers
+          } else {
+            let users = await userService.getUsers()
+            console.log(users)
+            users.forEach(user => {
+              this.userList.push({
+                id: user.id,
+                name: user.name,
+                company: user.company.name,
+              })
+            })
+            localStorage.setItem('users', JSON.stringify(this.userList))
+          }
+        }
+      } catch (err) {
+        this.error = err
+        console.log(this.error)
+      } finally {
+        this.isLoading = false
+      }
+    },
+  },
+  mounted() {
+    this.getUserList()
   },
 }
 </script>

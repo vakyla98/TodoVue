@@ -62,8 +62,8 @@ export default {
   watch: {
     todos: {
       deep: true,
-      handler(list) {
-        localStorage.setItem('tasks', JSON.stringify(list))
+      handler(todos) {
+        localStorage.setItem('tasks', JSON.stringify(todos))
       },
     },
   },
