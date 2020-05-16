@@ -33,7 +33,7 @@ gulp.task('svgToSprite', () => {
     };
     return gulp.src("**/*.svg", { cwd: "src/assets" })
         .pipe(svgSprite(config))
-        .pipe(gulp.dest('dist/img'));
+        .pipe(gulp.dest('src/assets'));
 })
 
 gulp.task(

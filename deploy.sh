@@ -4,6 +4,7 @@
 set -e
 
 # сборка
+gulp
 npm run build
 
 # переход в каталог сборки
