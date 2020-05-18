@@ -5,13 +5,13 @@
         <v-row justify="center">
           <v-col xl="10">
             <v-container>
-              <CreateToDo @addTodo="addTodo" />
-              <ToDoList :todos="todos" @delTodo="delTodo" @editTodo="editTodo" @toogleState="toogleState"/>
+              <create-to-do @addTodo="addTodo" />
+              <to-do-list :todos="todos" @delTodo="delTodo" @editTodo="editTodo" @toogleState="toogleState"/>
             </v-container>
           </v-col>
         </v-row>
       </v-content>
-      <Modal v-if="isModalVisible" :oldText="activeTodo.text" @submitNewText="submitNewText"></Modal>
+      <modal v-if="isModalVisible" :oldText="activeTodo.text" @submitNewText="submitNewText"></modal>
     </div>
   </v-app>
 </template>

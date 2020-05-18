@@ -44,7 +44,6 @@ export default {
       drawer: false
     };
   },
-  components: {}
 };
 </script>
 

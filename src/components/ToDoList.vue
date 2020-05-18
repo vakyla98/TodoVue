@@ -4,7 +4,7 @@
       <div class="list uncompletedList">
         <h3 class="mb-5">Uncompleted ToDo's</h3>
         <v-list class="todo-list" v-if="this.uncompleted.length">
-          <ToDoItem
+          <to-do-item
             v-for="todo in uncompleted"
             :key="todo.id"
             :todo="todo"
@@ -17,9 +17,9 @@
         <p v-else class="mt-7 text-center">None</p>
       </div>
       <div class="list completedList">
-        <h3 class="mb-5">Completed ToDo's</h3>
+        <h3 class="mb-5 mt-5">Completed ToDo's</h3>
         <v-list class="todo-list" v-if="this.completed.length">
-          <ToDoItem
+          <to-do-item
             v-for="todo in completed"
             :key="todo.id"
             :todo="todo"
