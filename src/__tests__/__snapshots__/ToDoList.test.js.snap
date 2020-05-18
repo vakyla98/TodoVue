@@ -9,7 +9,7 @@ exports[`ToDoList render correctly 1`] = `
       class="list uncompletedList"
     >
       <h3
-        class="mb-5"
+        class="mb-5 mt-5"
       >
         Uncompleted ToDo's
       </h3>

@@ -2,7 +2,7 @@
   <div>
     <div class="list-wrapper" v-if="todos.length">
       <div class="list uncompletedList">
-        <h3 class="mb-5">Uncompleted ToDo's</h3>
+        <h3 class="mb-5 mt-5">Uncompleted ToDo's</h3>
         <v-list class="todo-list" v-if="this.uncompleted.length">
           <to-do-item
             v-for="todo in uncompleted"
