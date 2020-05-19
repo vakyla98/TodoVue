@@ -6,7 +6,12 @@
           <v-col xl="10">
             <v-container>
               <create-to-do @addTodo="addTodo" />
-              <to-do-list :todos="todos" @delTodo="delTodo" @editTodo="editTodo" @toogleState="toogleState"/>
+              <to-do-list
+                :todos="todos"
+                @delTodo="delTodo"
+                @editTodo="editTodo"
+                @toogleState="toogleState"
+              />
             </v-container>
           </v-col>
         </v-row>
@@ -69,3 +74,4 @@ export default {
   },
 }
 </script> 
+

@@ -1,38 +1,41 @@
 <template>
   <div>
-    <div class="list-wrapper" v-if="todos.length">
-      <div class="list uncompletedList">
-        <h3 class="mb-5 mt-5">Uncompleted ToDo's</h3>
-        <v-list class="todo-list" v-if="this.uncompleted.length">
-          <to-do-item
-            v-for="todo in uncompleted"
-            :key="todo.id"
-            :todo="todo"
-            @toogleState="toogleState"
-            @delTodo="delTodo"
-            @editTodo="editTodo"
-            class='uncompletedTodo'
-          />
-        </v-list>
-        <p v-else class="mt-7 text-center">None</p>
+    <transition name="slide-fade">
+      <div class="list-wrapper" v-if="todos.length">
+        <div class="list uncompletedList">
+          <h3 class="mb-5 mt-5">Uncompleted ToDo's</h3>
+          <v-list class="todo-list" v-if="this.uncompleted.length">
+            <transition-group name="slide-fade">
+              <to-do-item
+                v-for="todo in uncompleted"
+                :key="todo.id"
+                :todo="todo"
+                @toogleState="toogleState"
+                @delTodo="delTodo"
+                @editTodo="editTodo"
+                class="todo uncompletedTodo"
+              />
+            </transition-group>
+          </v-list>
+        </div>
+        <div class="list completedList">
+          <h3 class="mb-5 mt-5">Completed ToDo's</h3>
+          <v-list class="todo-list" v-if="this.completed.length">
+            <transition-group name="slide-fade">
+              <to-do-item
+                v-for="todo in completed"
+                :key="todo.id"
+                :todo="todo"
+                @delTodo="delTodo"
+                @editTodo="editTodo"
+                @toogleState="toogleState"
+                class="todo completedTodo"
+              />
+            </transition-group>
+          </v-list>
+        </div>
       </div>
-      <div class="list completedList">
-        <h3 class="mb-5 mt-5">Completed ToDo's</h3>
-        <v-list class="todo-list" v-if="this.completed.length">
-          <to-do-item
-            v-for="todo in completed"
-            :key="todo.id"
-            :todo="todo"
-            @delTodo="delTodo"
-            @editTodo="editTodo"
-            @toogleState="toogleState"
-            class='completedTodo'
-          />
-        </v-list>
-        <p v-else class="mt-7 text-center">None</p>
-      </div>
-    </div>
-    <p v-else class="mt-7 text-center">No tasks</p>
+    </transition>
   </div>
 </template>
 
@@ -68,7 +71,7 @@ export default {
 }
 </script>
 
-<style lang='scss' scoped>
+<style lang='scss'>
 .list-wrapper {
   display: flex;
 }
@@ -78,11 +81,28 @@ export default {
 }
 .todo-list {
   padding: 0;
+  position: relative;
 }
 @media screen and (max-width: 767px) {
   .list-wrapper {
     display: block;
   }
+}
+.slide-fade-move {
+  transition: transform 0.3s;
+}
+.slide-fade-enter-active {
+  transition: all 0.4s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.slide-fade-leave-active {
+  transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
+  width: 100%;
+  position: absolute;
+}
+.slide-fade-enter,
+.slide-fade-leave-to {
+  transform: translateX(-10px);
+  opacity: 0;
 }
 </style>
 
