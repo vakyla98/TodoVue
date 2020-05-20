@@ -8,9 +8,7 @@
       </v-col>
       <v-col>
         <v-list-item-title class="headline">{{tech.name}}</v-list-item-title>
-        <v-list-item-content
-          class="subtitle-2"
-        >Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, provident. Quis deleniti quas explicabo reprehenderit totam eos delectus cupiditate consequatur, vitae voluptas corporis adipisci obcaecati harum voluptatum eligendi autem cum.</v-list-item-content>
+        <v-list-item-content class="subtitle-2" v-html="tech.describe"></v-list-item-content>
       </v-col>
     </v-row>
   </v-list-item>
@@ -43,8 +41,8 @@ export default {
 @media screen and (max-width: 599px) {
   .tech {
     .icon-wrapper {
-        padding: 0;
-        margin-bottom:-10px;
+      padding: 0;
+      margin-bottom: -10px;
     }
     text-align: center;
     &-item {

@@ -28,9 +28,7 @@
         </v-card>
       </v-list>
       <div class="d-flex justify-center ma-5 p" v-if="error">
-        <v-alert type="error" color="secondary" dense>
-          {{error.message}}
-        </v-alert>
+        <v-alert type="error" color="secondary" dense>{{error.message}}</v-alert>
       </div>
     </v-content>
   </div>
@@ -94,5 +92,4 @@ export default {
   width: 30%;
   min-width: 200px;
 }
-
 </style>

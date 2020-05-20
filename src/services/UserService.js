@@ -7,7 +7,7 @@ export class UserService {
     }
     getUsers() {
         return axios
-            .get(this.http, { timeout: 10000 })
+            .get(this.http, { timeout: 30000 })
             .then(response => response.data)
             .catch(err => {
                 throw new Error(err)
