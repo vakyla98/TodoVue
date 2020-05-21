@@ -2,7 +2,7 @@
   <div>
     <v-list-item :id="todo.id" class="ml-3 list-item">
       <v-row justify="center" align="center">
-        <v-checkbox class="checkbox" v-model="checked"></v-checkbox>
+        <v-checkbox class="checkbox" v-model="checked" />
         <v-col class="text-left">
           <p :class="{ completed: todo.isCompleted }" class="todo-text ma-0">{{ todo.text }}</p>
         </v-col>
@@ -44,9 +44,6 @@ export default {
     delHandler() {
       this.$emit('delTodo', this.todo.id)
     },
-    // todoStateHandler() {
-    //   this.$emit('toogleState', this.todo.id)
-    // },
   },
 }
 </script>
@@ -58,5 +55,17 @@ export default {
 }
 .todo-text {
   min-width: 210px;
+  width: 100%;
+}
+@media screen and (max-width: 500px) {
+  .checkbox {
+    margin-left: auto;
+    margin-top: 18px;
+    order: 2;
+  }
+  .list .col {
+    flex-basis: unset;
+    padding-bottom: 0;
+  }
 }
 </style>
