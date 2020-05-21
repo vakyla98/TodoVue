@@ -27,11 +27,11 @@ $ gulp
 
 ### Some screens with explanations
 
-1.Modal window change ToDo text. Used basic data-flow with `data` and `props`
+1. Modal window change ToDo text. Used basic data-flow with `data` and `props`
 ![Changing data](https://github.com/vakyla98/TodoVue/blob/gh-pages/src/assets/readme/Edit.png)
 
-2.Here i create a svg-sprite using Gulp \
-![Sprites](https://github.com/vakyla98/TodoVue/blob/gh-pages/src/assets/readme/Sprite.png)
+2. Here i create a svg-sprite using Gulp \
+![Sprites](https://github.com/vakyla98/TodoVue/blob/gh-pages/src/assets/readme/Sprite.png) 
 
 3. Items holds at two list with computed properties. We can create,delete, or edit item. 
 ![Tasks](https://github.com/vakyla98/TodoVue/blob/gh-pages/src/assets/readme/Tasks.png)
