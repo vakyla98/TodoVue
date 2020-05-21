@@ -1,7 +1,7 @@
 # To Do List 
 
 This is my first project with using Vue.js and vue-ecosystem.
-You also can see list of all technology at vakyla98.github.io/TodoVue/dist
+You also can see list of all technology at  [Home page](vakyla98.github.io/TodoVue/dist)
 
 ## Local install and other command
 Install all dependencies 
@@ -34,7 +34,7 @@ $ gulp
 ![Sprites](https://github.com/vakyla98/TodoVue/blob/gh-pages/src/assets/readme/Sprite.png)
 
 3. Items holds at two list with computed properties. We can create,delete, or edit item. 
-https://github.com/vakyla98/TodoVue/blob/gh-pages/src/assets/readme/Tasks.png
+![Tasks](https://github.com/vakyla98/TodoVue/blob/gh-pages/src/assets/readme/Tasks.png)
 
 4. At Users page i used placeholder REST API with user list. When they loading, we see beautiful spinner, too we have error handling on timeout and error code like a 404. \
 ![User loading](https://github.com/vakyla98/TodoVue/blob/gh-pages/src/assets/readme/User_loading.png) \
