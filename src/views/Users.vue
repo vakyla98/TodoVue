@@ -1,10 +1,10 @@
 <template>
   <div>
     <v-content>
-      <h2 class="text-center mt-7">There is our users</h2>
+      <h2 class="text-center mt-7">There are our users</h2>
       <div class="d-flex align-center ma-5 flex-column" v-if="isLoading">
         <HexagonSpin v-if="isLoading"></HexagonSpin>
-        <p class="pt-5">Users loading</p>
+        <p class="pt-5">Users loading. If loading work too long,please try some more times. Free API is so slow :)</p>
       </div>
       <v-list v-if="userList.length" color="transparent" class="d-flex flex-wrap justify-center">
         <v-card
