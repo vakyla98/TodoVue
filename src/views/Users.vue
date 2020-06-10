@@ -4,9 +4,16 @@
       <h2 class="text-center mt-7">There are our users</h2>
       <div class="d-flex align-center ma-5 flex-column" v-if="isLoading">
         <HexagonSpin v-if="isLoading"></HexagonSpin>
-        <p class="pt-5">Users loading. If loading work too long,please try some more times. Free API is so slow :)</p>
+        <p class="pt-5">
+          Users loading. If loading work too long,please try some more times.
+          Free API is so slow :)
+        </p>
       </div>
-      <v-list v-if="userList.length" color="transparent" class="d-flex flex-wrap justify-center">
+      <v-list
+        v-if="userList.length"
+        color="transparent"
+        class="d-flex flex-wrap justify-center"
+      >
         <v-card
           v-for="user in userList"
           :key="user.id"
@@ -28,7 +35,9 @@
         </v-card>
       </v-list>
       <div class="d-flex justify-center ma-5 p" v-if="error">
-        <v-alert type="error" color="secondary" dense>{{error.message}}</v-alert>
+        <v-alert type="error" color="secondary" dense>{{
+          error.message
+        }}</v-alert>
       </div>
     </v-content>
   </div>
@@ -52,27 +61,19 @@ export default {
   methods: {
     async getUserList() {
       try {
-        let timer = new Promise(resolve => {
-          //Декоративный промис для задержки загрузки данных на 3 сек, что бы показать полюзователю красивый спиннер, а вам что я немного понимаю promise :)
-          setTimeout(() => {
-            resolve(true)
-          }, 3000)
-        })
-        if (await timer) {
-          let localUsers = JSON.parse(localStorage.getItem('users'))
-          if (localUsers) {
-            this.userList = localUsers
-          } else {
-            let users = await userService.getUsers()
-            users.forEach(user => {
-              this.userList.push({
-                id: user.id,
-                name: user.name,
-                company: user.company.name,
-              })
+        let localUsers = JSON.parse(localStorage.getItem('users'))
+        if (localUsers) {
+          this.userList = localUsers
+        } else {
+          let users = await userService.getUsers()
+          users.forEach(user => {
+            this.userList.push({
+              id: user.id,
+              name: user.name,
+              company: user.company.name,
             })
-            localStorage.setItem('users', JSON.stringify(this.userList))
-          }
+          })
+          localStorage.setItem('users', JSON.stringify(this.userList))
         }
       } catch (err) {
         this.error = err
