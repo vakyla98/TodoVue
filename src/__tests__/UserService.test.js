@@ -11,7 +11,7 @@ it('User services return users', async () => {
     const userList = await userService.getUsers()
     
     expect(userList).toEqual(['user1','user2'])
-    expect(mockAxios.get).toHaveBeenCalledWith('https://jsonplaceholder.typicode.com/users?_limit=9',{"timeout": 30000})
+    expect(mockAxios.get).toHaveBeenCalledWith('https://jsonplaceholder.typicode.com/users?_limit=9',{"timeout": 10000})
 })
 
 
