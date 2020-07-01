@@ -16,8 +16,9 @@
                 color="primary"
                 @click="addHandler"
                 :disabled="!text"
-                >Add</v-btn
             >
+                Add
+            </v-btn>
         </v-col>
     </v-row>
 </template>
@@ -45,5 +46,3 @@ export default {
     },
 }
 </script>
-
-<style></style>
