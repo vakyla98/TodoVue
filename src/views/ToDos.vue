@@ -3,7 +3,7 @@
         <div class="todo container">
             <create-to-do @addTodo="addTodo" />
 
-            <div class="list-wrapper">
+            <div class="list-wrapper ">
                 <to-do-list
                     class="completedList"
                     :todos="uncompleted"
@@ -23,7 +23,6 @@
                     Completed:
                 </to-do-list>
             </div>
-
             <modal
                 v-if="isModalVisible"
                 :oldText="activeTodo.text"
@@ -95,7 +94,12 @@ export default {
 }
 </script>
 <style lang="scss">
-    .list-wrapper{
-        display: flex;
+@import '../styles/mixins.scss';
+.list-wrapper {
+    display: flex;
+    flex-direction: row;
+    @include screen(max, 800px) {
+        flex-direction: column;
     }
+}
 </style>
