@@ -63,9 +63,5 @@ export default {
     margin-top: 18px;
     order: 2;
   }
-  .list .col {
-    flex-basis: unset;
-    padding-bottom: 0;
-  }
 }
 </style>

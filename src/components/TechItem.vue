@@ -14,10 +14,7 @@
                 <v-list-item-title class="headline">
                     {{ tech.name }}
                 </v-list-item-title>
-                <p
-                    class="subtitle-2"
-                    v-html="tech.describe"
-                ></p>
+                <p class="subtitle-2" v-html="tech.describe"></p>
             </v-col>
         </v-row>
     </v-list-item>
