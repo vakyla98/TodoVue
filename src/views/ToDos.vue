@@ -97,6 +97,7 @@ export default {
 @import '../styles/mixins.scss';
 .list-wrapper {
     display: flex;
+
     flex-direction: row;
     @include screen(max, 800px) {
         flex-direction: column;

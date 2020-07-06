@@ -1,0 +1,14 @@
+.todo-block {
+    display: flex;
+    padding: 15px;
+    flex-direction: column;
+    width: 50%;
+    @include screen(max,800px){
+        width: 100%;  
+    }
+}
+
+.todo-list {
+    padding: 0;
+    position: relative;
+}

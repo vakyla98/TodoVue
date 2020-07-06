@@ -40,25 +40,3 @@ export default {
     },
 }
 </script>
-
-<style lang="scss">
-.todo-block {
-    display: flex;
-    padding:15px;
-    flex-direction: column;
-    width: 100%;
-}
-.list {
-    width: 100%;
-    padding: 0 10px;
-}
-.todo-list {
-    padding: 0;
-    position: relative;
-}
-@media screen and (max-width: 767px) {
-    .list-wrapper {
-        display: block;
-    }
-}
-</style>
