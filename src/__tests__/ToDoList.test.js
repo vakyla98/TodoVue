@@ -24,12 +24,8 @@ describe('ToDoList', () => {
     it('render correctly', () => {
         expect(item.element).toMatchSnapshot()
     })
-    it('render completed todos correctly', () => {
-        let completed = item.findAll('.completedList .completedTodo')
-        expect(completed).toHaveLength(4)
-    })
-    it('render uncompleted todos correctly', () => {
-        let uncompleted = item.findAll('.uncompletedList .uncompletedTodo')
-        expect(uncompleted).toHaveLength(2)
+    it('render todos correctly', () => {
+        let todos = item.findAll('.todo-list .todo')
+        expect(todos).toHaveLength(6)
     })
 })

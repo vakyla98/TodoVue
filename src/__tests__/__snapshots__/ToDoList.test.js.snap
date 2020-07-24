@@ -1,653 +1,645 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ToDoList render correctly 1`] = `
-<div>
-  <transition-stub
-    name="slide-fade"
+<div
+  class="todo-block"
+>
+  <h3
+    class="mb-5 mt-5"
+  />
+   
+  <div
+    class="v-list todo-list v-sheet v-sheet--tile theme--light"
+    role="list"
   >
-    <div
-      class="list-wrapper"
+    <transition-group-stub
+      name="slide-fade"
     >
       <div
-        class="list uncompletedList"
+        class="todo"
       >
-        <h3
-          class="mb-5 mt-5"
-        >
-          Uncompleted ToDo's
-        </h3>
-         
         <div
-          class="v-list todo-list v-sheet v-sheet--tile theme--light"
-          role="list"
+          class="ml-3 list-item v-list-item theme--light"
+          id="1"
+          role="listitem"
+          tabindex="-1"
         >
-          <transition-group-stub
-            name="slide-fade"
+          <div
+            class="v-input checkbox v-input--is-label-active v-input--is-dirty theme--light v-input--selection-controls v-input--checkbox primary--text"
           >
             <div
-              class="todo uncompletedTodo"
+              class="v-input__control"
             >
               <div
-                class="ml-3 list-item v-list-item theme--light"
-                id="2"
-                role="listitem"
-                tabindex="-1"
+                class="v-input__slot"
               >
                 <div
-                  class="row align-center justify-center"
+                  class="v-input--selection-controls__input"
                 >
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate material-icons theme--light primary--text"
+                  >
+                    $checkboxOn
+                  </i>
+                  <input
+                    aria-checked="true"
+                    id="input-6"
+                    role="checkbox"
+                    type="checkbox"
+                    value=""
+                  />
                   <div
-                    class="v-input checkbox theme--light v-input--selection-controls v-input--checkbox"
-                  >
-                    <div
-                      class="v-input__control"
-                    >
-                      <div
-                        class="v-input__slot"
-                      >
-                        <div
-                          class="v-input--selection-controls__input"
-                        >
-                          <i
-                            aria-hidden="true"
-                            class="v-icon notranslate material-icons theme--light"
-                          >
-                            $checkboxOff
-                          </i>
-                          <input
-                            aria-checked="false"
-                            id="input-7"
-                            role="checkbox"
-                            type="checkbox"
-                            value=""
-                          />
-                          <div
-                            class="v-input--selection-controls__ripple"
-                          />
-                        </div>
-                      </div>
-                      <div
-                        class="v-messages theme--light"
-                      >
-                        <transition-group-stub
-                          class="v-messages__wrapper"
-                          name="message-transition"
-                          tag="div"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                   
-                  <div
-                    class="text-left col"
-                  >
-                    <p
-                      class="todo-text ma-0"
-                    >
-                      Some text2
-                    </p>
-                  </div>
-                   
-                  <button
-                    class="edit-btn v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--small primary--text"
-                    type="button"
-                  >
-                    <span
-                      class="v-btn__content"
-                    >
-                      <i
-                        aria-hidden="true"
-                        class="v-icon notranslate mdi mdi-pencil theme--light"
-                      />
-                    </span>
-                  </button>
-                   
-                  <button
-                    class="del-btn v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--small primary--text"
-                    type="button"
-                  >
-                    <span
-                      class="v-btn__content"
-                    >
-                      <i
-                        aria-hidden="true"
-                        class="v-icon notranslate mdi mdi-delete theme--light"
-                      />
-                    </span>
-                  </button>
+                    class="v-input--selection-controls__ripple primary--text"
+                  />
                 </div>
               </div>
-               
-              <hr
-                aria-orientation="horizontal"
-                class="v-divider theme--dark"
-                role="separator"
-              />
+              <div
+                class="v-messages theme--light primary--text"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
             </div>
+          </div>
+           
+          <div
+            class="v-list-item__content"
+          >
             <div
-              class="todo uncompletedTodo"
+              class="v-list-item__subtitle todo-text ma-0 completed"
             >
-              <div
-                class="ml-3 list-item v-list-item theme--light"
-                id="4"
-                role="listitem"
-                tabindex="-1"
-              >
-                <div
-                  class="row align-center justify-center"
-                >
-                  <div
-                    class="v-input checkbox theme--light v-input--selection-controls v-input--checkbox"
-                  >
-                    <div
-                      class="v-input__control"
-                    >
-                      <div
-                        class="v-input__slot"
-                      >
-                        <div
-                          class="v-input--selection-controls__input"
-                        >
-                          <i
-                            aria-hidden="true"
-                            class="v-icon notranslate material-icons theme--light"
-                          >
-                            $checkboxOff
-                          </i>
-                          <input
-                            aria-checked="false"
-                            id="input-18"
-                            role="checkbox"
-                            type="checkbox"
-                            value=""
-                          />
-                          <div
-                            class="v-input--selection-controls__ripple"
-                          />
-                        </div>
-                      </div>
-                      <div
-                        class="v-messages theme--light"
-                      >
-                        <transition-group-stub
-                          class="v-messages__wrapper"
-                          name="message-transition"
-                          tag="div"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                   
-                  <div
-                    class="text-left col"
-                  >
-                    <p
-                      class="todo-text ma-0"
-                    >
-                      Some text4
-                    </p>
-                  </div>
-                   
-                  <button
-                    class="edit-btn v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--small primary--text"
-                    type="button"
-                  >
-                    <span
-                      class="v-btn__content"
-                    >
-                      <i
-                        aria-hidden="true"
-                        class="v-icon notranslate mdi mdi-pencil theme--light"
-                      />
-                    </span>
-                  </button>
-                   
-                  <button
-                    class="del-btn v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--small primary--text"
-                    type="button"
-                  >
-                    <span
-                      class="v-btn__content"
-                    >
-                      <i
-                        aria-hidden="true"
-                        class="v-icon notranslate mdi mdi-delete theme--light"
-                      />
-                    </span>
-                  </button>
-                </div>
-              </div>
-               
-              <hr
-                aria-orientation="horizontal"
-                class="v-divider theme--dark"
-                role="separator"
-              />
+              Some text1
             </div>
-          </transition-group-stub>
+          </div>
+           
+          <div
+            class="v-list-item__action"
+          >
+            <button
+              class="edit-btn v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--small primary--text"
+              type="button"
+            >
+              <span
+                class="v-btn__content"
+              >
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-pencil theme--light"
+                />
+              </span>
+            </button>
+          </div>
+           
+          <div
+            class="v-list-item__action"
+          >
+            <button
+              class="del-btn v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--small primary--text"
+              type="button"
+            >
+              <span
+                class="v-btn__content"
+              >
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-delete theme--light"
+                />
+              </span>
+            </button>
+          </div>
         </div>
+         
+        <hr
+          aria-orientation="horizontal"
+          class="v-divider theme--dark"
+          role="separator"
+        />
       </div>
-       
       <div
-        class="list completedList"
+        class="todo"
       >
-        <h3
-          class="mb-5 mt-5"
-        >
-          Completed ToDo's
-        </h3>
-         
         <div
-          class="v-list todo-list v-sheet v-sheet--tile theme--light"
-          role="list"
+          class="ml-3 list-item v-list-item theme--light"
+          id="2"
+          role="listitem"
+          tabindex="-1"
         >
-          <transition-group-stub
-            name="slide-fade"
+          <div
+            class="v-input checkbox theme--light v-input--selection-controls v-input--checkbox"
           >
             <div
-              class="todo completedTodo"
+              class="v-input__control"
             >
               <div
-                class="ml-3 list-item v-list-item theme--light"
-                id="1"
-                role="listitem"
-                tabindex="-1"
+                class="v-input__slot"
               >
                 <div
-                  class="row align-center justify-center"
+                  class="v-input--selection-controls__input"
                 >
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate material-icons theme--light"
+                  >
+                    $checkboxOff
+                  </i>
+                  <input
+                    aria-checked="false"
+                    id="input-17"
+                    role="checkbox"
+                    type="checkbox"
+                    value=""
+                  />
                   <div
-                    class="v-input checkbox v-input--is-label-active v-input--is-dirty theme--light v-input--selection-controls v-input--checkbox primary--text"
-                  >
-                    <div
-                      class="v-input__control"
-                    >
-                      <div
-                        class="v-input__slot"
-                      >
-                        <div
-                          class="v-input--selection-controls__input"
-                        >
-                          <i
-                            aria-hidden="true"
-                            class="v-icon notranslate material-icons theme--light primary--text"
-                          >
-                            $checkboxOn
-                          </i>
-                          <input
-                            aria-checked="true"
-                            id="input-31"
-                            role="checkbox"
-                            type="checkbox"
-                            value=""
-                          />
-                          <div
-                            class="v-input--selection-controls__ripple primary--text"
-                          />
-                        </div>
-                      </div>
-                      <div
-                        class="v-messages theme--light primary--text"
-                      >
-                        <transition-group-stub
-                          class="v-messages__wrapper"
-                          name="message-transition"
-                          tag="div"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                   
-                  <div
-                    class="text-left col"
-                  >
-                    <p
-                      class="todo-text ma-0 completed"
-                    >
-                      Some text1
-                    </p>
-                  </div>
-                   
-                  <button
-                    class="edit-btn v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--small primary--text"
-                    type="button"
-                  >
-                    <span
-                      class="v-btn__content"
-                    >
-                      <i
-                        aria-hidden="true"
-                        class="v-icon notranslate mdi mdi-pencil theme--light"
-                      />
-                    </span>
-                  </button>
-                   
-                  <button
-                    class="del-btn v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--small primary--text"
-                    type="button"
-                  >
-                    <span
-                      class="v-btn__content"
-                    >
-                      <i
-                        aria-hidden="true"
-                        class="v-icon notranslate mdi mdi-delete theme--light"
-                      />
-                    </span>
-                  </button>
+                    class="v-input--selection-controls__ripple"
+                  />
                 </div>
               </div>
-               
-              <hr
-                aria-orientation="horizontal"
-                class="v-divider theme--dark"
-                role="separator"
-              />
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
             </div>
+          </div>
+           
+          <div
+            class="v-list-item__content"
+          >
             <div
-              class="todo completedTodo"
+              class="v-list-item__subtitle todo-text ma-0"
             >
-              <div
-                class="ml-3 list-item v-list-item theme--light"
-                id="3"
-                role="listitem"
-                tabindex="-1"
-              >
-                <div
-                  class="row align-center justify-center"
-                >
-                  <div
-                    class="v-input checkbox v-input--is-label-active v-input--is-dirty theme--light v-input--selection-controls v-input--checkbox primary--text"
-                  >
-                    <div
-                      class="v-input__control"
-                    >
-                      <div
-                        class="v-input__slot"
-                      >
-                        <div
-                          class="v-input--selection-controls__input"
-                        >
-                          <i
-                            aria-hidden="true"
-                            class="v-icon notranslate material-icons theme--light primary--text"
-                          >
-                            $checkboxOn
-                          </i>
-                          <input
-                            aria-checked="true"
-                            id="input-42"
-                            role="checkbox"
-                            type="checkbox"
-                            value=""
-                          />
-                          <div
-                            class="v-input--selection-controls__ripple primary--text"
-                          />
-                        </div>
-                      </div>
-                      <div
-                        class="v-messages theme--light primary--text"
-                      >
-                        <transition-group-stub
-                          class="v-messages__wrapper"
-                          name="message-transition"
-                          tag="div"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                   
-                  <div
-                    class="text-left col"
-                  >
-                    <p
-                      class="todo-text ma-0 completed"
-                    >
-                      Some text3
-                    </p>
-                  </div>
-                   
-                  <button
-                    class="edit-btn v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--small primary--text"
-                    type="button"
-                  >
-                    <span
-                      class="v-btn__content"
-                    >
-                      <i
-                        aria-hidden="true"
-                        class="v-icon notranslate mdi mdi-pencil theme--light"
-                      />
-                    </span>
-                  </button>
-                   
-                  <button
-                    class="del-btn v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--small primary--text"
-                    type="button"
-                  >
-                    <span
-                      class="v-btn__content"
-                    >
-                      <i
-                        aria-hidden="true"
-                        class="v-icon notranslate mdi mdi-delete theme--light"
-                      />
-                    </span>
-                  </button>
-                </div>
-              </div>
-               
-              <hr
-                aria-orientation="horizontal"
-                class="v-divider theme--dark"
-                role="separator"
-              />
+              Some text2
             </div>
-            <div
-              class="todo completedTodo"
+          </div>
+           
+          <div
+            class="v-list-item__action"
+          >
+            <button
+              class="edit-btn v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--small primary--text"
+              type="button"
             >
-              <div
-                class="ml-3 list-item v-list-item theme--light"
-                id="5"
-                role="listitem"
-                tabindex="-1"
+              <span
+                class="v-btn__content"
               >
-                <div
-                  class="row align-center justify-center"
-                >
-                  <div
-                    class="v-input checkbox v-input--is-label-active v-input--is-dirty theme--light v-input--selection-controls v-input--checkbox primary--text"
-                  >
-                    <div
-                      class="v-input__control"
-                    >
-                      <div
-                        class="v-input__slot"
-                      >
-                        <div
-                          class="v-input--selection-controls__input"
-                        >
-                          <i
-                            aria-hidden="true"
-                            class="v-icon notranslate material-icons theme--light primary--text"
-                          >
-                            $checkboxOn
-                          </i>
-                          <input
-                            aria-checked="true"
-                            id="input-53"
-                            role="checkbox"
-                            type="checkbox"
-                            value=""
-                          />
-                          <div
-                            class="v-input--selection-controls__ripple primary--text"
-                          />
-                        </div>
-                      </div>
-                      <div
-                        class="v-messages theme--light primary--text"
-                      >
-                        <transition-group-stub
-                          class="v-messages__wrapper"
-                          name="message-transition"
-                          tag="div"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                   
-                  <div
-                    class="text-left col"
-                  >
-                    <p
-                      class="todo-text ma-0 completed"
-                    >
-                      Some text5
-                    </p>
-                  </div>
-                   
-                  <button
-                    class="edit-btn v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--small primary--text"
-                    type="button"
-                  >
-                    <span
-                      class="v-btn__content"
-                    >
-                      <i
-                        aria-hidden="true"
-                        class="v-icon notranslate mdi mdi-pencil theme--light"
-                      />
-                    </span>
-                  </button>
-                   
-                  <button
-                    class="del-btn v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--small primary--text"
-                    type="button"
-                  >
-                    <span
-                      class="v-btn__content"
-                    >
-                      <i
-                        aria-hidden="true"
-                        class="v-icon notranslate mdi mdi-delete theme--light"
-                      />
-                    </span>
-                  </button>
-                </div>
-              </div>
-               
-              <hr
-                aria-orientation="horizontal"
-                class="v-divider theme--dark"
-                role="separator"
-              />
-            </div>
-            <div
-              class="todo completedTodo"
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-pencil theme--light"
+                />
+              </span>
+            </button>
+          </div>
+           
+          <div
+            class="v-list-item__action"
+          >
+            <button
+              class="del-btn v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--small primary--text"
+              type="button"
             >
-              <div
-                class="ml-3 list-item v-list-item theme--light"
-                id="6"
-                role="listitem"
-                tabindex="-1"
+              <span
+                class="v-btn__content"
               >
-                <div
-                  class="row align-center justify-center"
-                >
-                  <div
-                    class="v-input checkbox v-input--is-label-active v-input--is-dirty theme--light v-input--selection-controls v-input--checkbox primary--text"
-                  >
-                    <div
-                      class="v-input__control"
-                    >
-                      <div
-                        class="v-input__slot"
-                      >
-                        <div
-                          class="v-input--selection-controls__input"
-                        >
-                          <i
-                            aria-hidden="true"
-                            class="v-icon notranslate material-icons theme--light primary--text"
-                          >
-                            $checkboxOn
-                          </i>
-                          <input
-                            aria-checked="true"
-                            id="input-64"
-                            role="checkbox"
-                            type="checkbox"
-                            value=""
-                          />
-                          <div
-                            class="v-input--selection-controls__ripple primary--text"
-                          />
-                        </div>
-                      </div>
-                      <div
-                        class="v-messages theme--light primary--text"
-                      >
-                        <transition-group-stub
-                          class="v-messages__wrapper"
-                          name="message-transition"
-                          tag="div"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                   
-                  <div
-                    class="text-left col"
-                  >
-                    <p
-                      class="todo-text ma-0 completed"
-                    >
-                      Some text6
-                    </p>
-                  </div>
-                   
-                  <button
-                    class="edit-btn v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--small primary--text"
-                    type="button"
-                  >
-                    <span
-                      class="v-btn__content"
-                    >
-                      <i
-                        aria-hidden="true"
-                        class="v-icon notranslate mdi mdi-pencil theme--light"
-                      />
-                    </span>
-                  </button>
-                   
-                  <button
-                    class="del-btn v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--small primary--text"
-                    type="button"
-                  >
-                    <span
-                      class="v-btn__content"
-                    >
-                      <i
-                        aria-hidden="true"
-                        class="v-icon notranslate mdi mdi-delete theme--light"
-                      />
-                    </span>
-                  </button>
-                </div>
-              </div>
-               
-              <hr
-                aria-orientation="horizontal"
-                class="v-divider theme--dark"
-                role="separator"
-              />
-            </div>
-          </transition-group-stub>
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-delete theme--light"
+                />
+              </span>
+            </button>
+          </div>
         </div>
+         
+        <hr
+          aria-orientation="horizontal"
+          class="v-divider theme--dark"
+          role="separator"
+        />
       </div>
-    </div>
-  </transition-stub>
+      <div
+        class="todo"
+      >
+        <div
+          class="ml-3 list-item v-list-item theme--light"
+          id="3"
+          role="listitem"
+          tabindex="-1"
+        >
+          <div
+            class="v-input checkbox v-input--is-label-active v-input--is-dirty theme--light v-input--selection-controls v-input--checkbox primary--text"
+          >
+            <div
+              class="v-input__control"
+            >
+              <div
+                class="v-input__slot"
+              >
+                <div
+                  class="v-input--selection-controls__input"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate material-icons theme--light primary--text"
+                  >
+                    $checkboxOn
+                  </i>
+                  <input
+                    aria-checked="true"
+                    id="input-28"
+                    role="checkbox"
+                    type="checkbox"
+                    value=""
+                  />
+                  <div
+                    class="v-input--selection-controls__ripple primary--text"
+                  />
+                </div>
+              </div>
+              <div
+                class="v-messages theme--light primary--text"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
+            </div>
+          </div>
+           
+          <div
+            class="v-list-item__content"
+          >
+            <div
+              class="v-list-item__subtitle todo-text ma-0 completed"
+            >
+              Some text3
+            </div>
+          </div>
+           
+          <div
+            class="v-list-item__action"
+          >
+            <button
+              class="edit-btn v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--small primary--text"
+              type="button"
+            >
+              <span
+                class="v-btn__content"
+              >
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-pencil theme--light"
+                />
+              </span>
+            </button>
+          </div>
+           
+          <div
+            class="v-list-item__action"
+          >
+            <button
+              class="del-btn v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--small primary--text"
+              type="button"
+            >
+              <span
+                class="v-btn__content"
+              >
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-delete theme--light"
+                />
+              </span>
+            </button>
+          </div>
+        </div>
+         
+        <hr
+          aria-orientation="horizontal"
+          class="v-divider theme--dark"
+          role="separator"
+        />
+      </div>
+      <div
+        class="todo"
+      >
+        <div
+          class="ml-3 list-item v-list-item theme--light"
+          id="4"
+          role="listitem"
+          tabindex="-1"
+        >
+          <div
+            class="v-input checkbox theme--light v-input--selection-controls v-input--checkbox"
+          >
+            <div
+              class="v-input__control"
+            >
+              <div
+                class="v-input__slot"
+              >
+                <div
+                  class="v-input--selection-controls__input"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate material-icons theme--light"
+                  >
+                    $checkboxOff
+                  </i>
+                  <input
+                    aria-checked="false"
+                    id="input-39"
+                    role="checkbox"
+                    type="checkbox"
+                    value=""
+                  />
+                  <div
+                    class="v-input--selection-controls__ripple"
+                  />
+                </div>
+              </div>
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
+            </div>
+          </div>
+           
+          <div
+            class="v-list-item__content"
+          >
+            <div
+              class="v-list-item__subtitle todo-text ma-0"
+            >
+              Some text4
+            </div>
+          </div>
+           
+          <div
+            class="v-list-item__action"
+          >
+            <button
+              class="edit-btn v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--small primary--text"
+              type="button"
+            >
+              <span
+                class="v-btn__content"
+              >
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-pencil theme--light"
+                />
+              </span>
+            </button>
+          </div>
+           
+          <div
+            class="v-list-item__action"
+          >
+            <button
+              class="del-btn v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--small primary--text"
+              type="button"
+            >
+              <span
+                class="v-btn__content"
+              >
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-delete theme--light"
+                />
+              </span>
+            </button>
+          </div>
+        </div>
+         
+        <hr
+          aria-orientation="horizontal"
+          class="v-divider theme--dark"
+          role="separator"
+        />
+      </div>
+      <div
+        class="todo"
+      >
+        <div
+          class="ml-3 list-item v-list-item theme--light"
+          id="5"
+          role="listitem"
+          tabindex="-1"
+        >
+          <div
+            class="v-input checkbox v-input--is-label-active v-input--is-dirty theme--light v-input--selection-controls v-input--checkbox primary--text"
+          >
+            <div
+              class="v-input__control"
+            >
+              <div
+                class="v-input__slot"
+              >
+                <div
+                  class="v-input--selection-controls__input"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate material-icons theme--light primary--text"
+                  >
+                    $checkboxOn
+                  </i>
+                  <input
+                    aria-checked="true"
+                    id="input-50"
+                    role="checkbox"
+                    type="checkbox"
+                    value=""
+                  />
+                  <div
+                    class="v-input--selection-controls__ripple primary--text"
+                  />
+                </div>
+              </div>
+              <div
+                class="v-messages theme--light primary--text"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
+            </div>
+          </div>
+           
+          <div
+            class="v-list-item__content"
+          >
+            <div
+              class="v-list-item__subtitle todo-text ma-0 completed"
+            >
+              Some text5
+            </div>
+          </div>
+           
+          <div
+            class="v-list-item__action"
+          >
+            <button
+              class="edit-btn v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--small primary--text"
+              type="button"
+            >
+              <span
+                class="v-btn__content"
+              >
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-pencil theme--light"
+                />
+              </span>
+            </button>
+          </div>
+           
+          <div
+            class="v-list-item__action"
+          >
+            <button
+              class="del-btn v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--small primary--text"
+              type="button"
+            >
+              <span
+                class="v-btn__content"
+              >
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-delete theme--light"
+                />
+              </span>
+            </button>
+          </div>
+        </div>
+         
+        <hr
+          aria-orientation="horizontal"
+          class="v-divider theme--dark"
+          role="separator"
+        />
+      </div>
+      <div
+        class="todo"
+      >
+        <div
+          class="ml-3 list-item v-list-item theme--light"
+          id="6"
+          role="listitem"
+          tabindex="-1"
+        >
+          <div
+            class="v-input checkbox v-input--is-label-active v-input--is-dirty theme--light v-input--selection-controls v-input--checkbox primary--text"
+          >
+            <div
+              class="v-input__control"
+            >
+              <div
+                class="v-input__slot"
+              >
+                <div
+                  class="v-input--selection-controls__input"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate material-icons theme--light primary--text"
+                  >
+                    $checkboxOn
+                  </i>
+                  <input
+                    aria-checked="true"
+                    id="input-61"
+                    role="checkbox"
+                    type="checkbox"
+                    value=""
+                  />
+                  <div
+                    class="v-input--selection-controls__ripple primary--text"
+                  />
+                </div>
+              </div>
+              <div
+                class="v-messages theme--light primary--text"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
+            </div>
+          </div>
+           
+          <div
+            class="v-list-item__content"
+          >
+            <div
+              class="v-list-item__subtitle todo-text ma-0 completed"
+            >
+              Some text6
+            </div>
+          </div>
+           
+          <div
+            class="v-list-item__action"
+          >
+            <button
+              class="edit-btn v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--small primary--text"
+              type="button"
+            >
+              <span
+                class="v-btn__content"
+              >
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-pencil theme--light"
+                />
+              </span>
+            </button>
+          </div>
+           
+          <div
+            class="v-list-item__action"
+          >
+            <button
+              class="del-btn v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--small primary--text"
+              type="button"
+            >
+              <span
+                class="v-btn__content"
+              >
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-delete theme--light"
+                />
+              </span>
+            </button>
+          </div>
+        </div>
+         
+        <hr
+          aria-orientation="horizontal"
+          class="v-divider theme--dark"
+          role="separator"
+        />
+      </div>
+    </transition-group-stub>
+  </div>
 </div>
 `;

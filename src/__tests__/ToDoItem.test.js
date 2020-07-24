@@ -40,4 +40,8 @@ describe('ToDoItem', () => {
         delBtn.trigger('click')
         expect(item.emitted().editTodo).toBeTruthy()
     })
+    it('Аdd Competed class correctly', () => {
+        let isCompleted = item.find('.todo-text').classes('completed')
+        expect(isCompleted).toBeTruthy()
+    })
 })
