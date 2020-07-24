@@ -1,12 +1,12 @@
 import axios from 'axios'
 
-
 export class UserService {
-    constructor(http){
-        this.http = http    
+    constructor(http) {
+        this.http = http
     }
-    getUsers() {
+    getUsers(userCount = 9) {
         return axios
-            .get(this.http).then(response => response.data)
+            .get(this.http + '/users?_limit=' + userCount)
+            .then(response => response.data)
     }
 }
