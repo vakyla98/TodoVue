@@ -1,89 +1,42 @@
 <template>
-  <div>
-    <div class="list-wrapper" v-if="todos.length">
-      <div class="list uncompletedList">
-        <h3 class="mb-5">Uncompleted ToDo's</h3>
-        <v-list class="todo-list" v-if="this.uncompleted.length">
-          <ToDoItem
-            v-for="todo in uncompleted"
-            :key="todo.id"
-            :todo="todo"
-            @toogleState="toogleState"
-            @delTodo="delTodo"
-            @editTodo="editTodo"
-            class='uncompletedTodo'
-          />
+    <div class="todo-block">
+        <h3 class="mb-5 mt-5"><slot></slot></h3>
+        <v-list class="todo-list" v-if="todos.length">
+            <transition-group name="slide-fade">
+                <to-do-item
+                    v-for="todo in todos"
+                    :key="todo.id"
+                    :todo="todo"
+                    @delTodo="delTodo"
+                    @editTodo="editTodo"
+                    @toogleState="toogleState"
+                    class="todo"
+                />
+            </transition-group>
         </v-list>
-        <p v-else class="mt-7 text-center">None</p>
-      </div>
-      <div class="list completedList">
-        <h3 class="mb-5">Completed ToDo's</h3>
-        <v-list class="todo-list" v-if="this.completed.length">
-          <ToDoItem
-            v-for="todo in completed"
-            :key="todo.id"
-            :todo="todo"
-            @delTodo="delTodo"
-            @editTodo="editTodo"
-            @toogleState="toogleState"
-            class='completedTodo'
-          />
-        </v-list>
-        <p v-else class="mt-7 text-center">None</p>
-      </div>
     </div>
-    <p v-else class="mt-7 text-center">No tasks</p>
-  </div>
 </template>
 
 <script>
 import ToDoItem from './ToDoItem.vue'
 
 export default {
-  components: {
-    ToDoItem,
-  },
-  props: {
-    todos: { type: Array, require: true },
-  },
-  computed: {
-    completed() {
-      return this.todos.filter(todo => todo.isCompleted == true)
+    components: {
+        ToDoItem,
     },
-    uncompleted() {
-      return this.todos.filter(todo => todo.isCompleted == false)
+    props: {
+        todos: { type: Array, require: true },
     },
-  },
-  methods: {
-    delTodo(id) {
-      this.$emit('delTodo', id)
+    methods: {
+        delTodo(id) {
+            this.$emit('delTodo', id)
+        },
+        editTodo(id) {
+            this.$emit('editTodo', id)
+        },
+        toogleState(id) {
+            this.$emit('toogleState', id)
+        },
     },
-    editTodo(id) {
-      this.$emit('editTodo', id)
-    },
-    toogleState(id) {
-      this.$emit('toogleState', id)
-    },
-  },
 }
 </script>
-
-<style lang='scss' scoped>
-.list-wrapper {
-  display: flex;
-}
-.list {
-  width: 100%;
-  padding: 0 10px;
-}
-.todo-list {
-  padding: 0;
-}
-@media screen and (max-width: 767px) {
-  .list-wrapper {
-    display: block;
-  }
-}
-</style>
-
-

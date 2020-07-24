@@ -1,25 +1,23 @@
-#!/usr/bin/env sh
-
 # остановить публикацию при ошибках
 set -e
 
 # сборка
+gulp
+npm run test
 npm run build
 
 # переход в каталог сборки
 # cd dist
-
-# если вы публикуете на пользовательский домен
-# echo 'www.example.com' > CNAME
-
 # git init
+
 git add .
 echo 'Enter your commit for deploy: '
 read -r commitName
 git commit -a -m "${commitName}"
-# git commit -a -m 'deploy'
+
 git push
 echo 'Succesfull push. Congrat!'
+
 # если вы публикуете по адресу https://<USERNAME>.github.io
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
 

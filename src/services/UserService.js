@@ -6,7 +6,10 @@ export class UserService {
     }
     getUsers(userCount = 9) {
         return axios
-            .get(this.http + '/users?_limit=' + userCount)
+            .get(this.http + '/users?_limit=' + userCount, { timeout: 10000 })
             .then(response => response.data)
+            .catch(err => {
+                throw new Error(err)
+            })
     }
 }

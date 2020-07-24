@@ -1,0 +1,10 @@
+@import 'anim.scss';
+@import 'mixins.scss';
+@import 'modules_list.scss';
+
+.container {
+    padding: 0 10px;
+    margin: 0 auto;
+    widows: 100%;
+    max-width: 1200px;
+}
